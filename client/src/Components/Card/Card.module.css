@@ -1,0 +1,35 @@
+.card{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 10px;
+    width: 85%;
+    background-color: rgb(207, 207, 208);
+    margin: 30px;
+}
+.info{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    width: 40%;
+    height:70vh;
+    /* background-color: purple; */
+    padding: 0px 20px 0px 20px;
+}
+.img{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 56.1%;
+    background-color: red;
+
+}
+
+.img img{
+    width: 100%;
+
+    /* background-color: yellow; */
+}

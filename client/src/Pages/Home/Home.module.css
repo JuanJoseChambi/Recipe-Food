@@ -1,0 +1,12 @@
+.home{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: red;
+}
+.block{
+    background-color: gray;
+    width: 95%;
+    margin-top: 80px;
+}
