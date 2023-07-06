@@ -1,9 +1,16 @@
-const {getApi} = require("../Handlers/getApi");
 const {Diet} = require("../db")
+const {getDiets} = require("../Handlers/getDiets")
 
 const typeDiets = async(req, res) => {
-    const allDiets = await Diet.findAll();
-    res.status(200).json(allDiets);
-    
+    const infoDB = Diet.findAll();
+    try {
+        if (!infoDB.length) {
+            const infoDietsApi = await getDiets();
+            res.status(200).json(infoDietsApi)
+        }
+    } catch (error) {
+        res.status(500).json({error:error.message})
+    }
+         
 }
 module.exports = {typeDiets};

@@ -13,7 +13,7 @@ const getApi = async () => {
           image: ele.image,
           summary: ele.summary,
           healthScore: ele.healthScore,
-          diet: ele.diets,
+          diets: ele.diets.map((d)=> {return{name:d}}),
           stepByStep: ele.analyzedInstructions[0]?.steps.map(paso => {
             return `paso: ${paso.number} - ${paso.step}`
           }),
@@ -29,7 +29,7 @@ const getApi = async () => {
         },
       });
       allApi.unshift(...allDB);
-      
     return allApi
 };
+
 module.exports = {getApi}

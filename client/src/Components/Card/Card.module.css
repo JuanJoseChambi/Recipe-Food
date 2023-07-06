@@ -1,35 +1,50 @@
-.card{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    flex-wrap: wrap;
-    margin: 10px;
-    width: 85%;
-    background-color: rgb(207, 207, 208);
-    margin: 30px;
-}
-.info{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    text-align: center;
-    width: 40%;
-    height:70vh;
-    /* background-color: purple; */
-    padding: 0px 20px 0px 20px;
-}
-.img{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 56.1%;
-    background-color: red;
+.card {
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+  flex-direction: column;
+  width: 310px;
+  height: 64vh;
+  background-color: rgb(207, 207, 208);
 
+  text-align: center;
+  margin: 30px;
+  margin-top: 50px;
+  border-radius: 10px;
 }
 
-.img img{
+.img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* position: relative; */
+  width: 100%;
+  /* background-color: red; */
+  height: 35vh;
+  margin: 0px;
+}
+.img img {
+    /* position: absolute; */
     width: 100%;
-
-    /* background-color: yellow; */
+    height: 35vh;
+    object-fit: cover;
+    border-radius: 10px 10px 0px 0px;
+  /* background-color: yellow; */
+}
+.name{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 55px;
+    width: 90%;
+    background-color: white;
+    font-size:18px;
+    font-family: 'Bebas Neue', sans-serif;
+    letter-spacing: 2px;
+    padding: 0px;
+}
+.diets{
+    display: flex;
+    flex-direction: column;
+    /* background-color: red; */
 }
