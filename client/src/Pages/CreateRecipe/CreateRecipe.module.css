@@ -1,0 +1,191 @@
+.CreatePage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+}
+.buton {
+  width: 4%;
+  height: 5.5vh;
+  position: absolute;
+  left: 0px;
+  top: 15px;
+  background-color: gray;
+  border: 0px;
+  border-bottom: 2px solid rgb(94, 87, 87);
+  border-right: 2px solid rgb(78, 70, 70);
+  border-radius: 0px 20px 20px 0px;
+  cursor: pointer;
+}
+.image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 35%;
+  height: 95vh;
+  margin: 0px;
+  background: rgb(0, 0, 0);
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 1) 0%,
+    rgb(41, 43, 41) 95%
+  );
+  border-radius: 10px 0px 0px 10px;
+  border-bottom: 1px solid rgb(212, 203, 203);
+  border-top: 1px solid rgb(237, 230, 230);
+  border-left: 1px solid rgb(237, 230, 230);
+}
+
+.image img {
+  width: 110%;
+  object-fit: cover;
+}
+.divForm {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 50%;
+  height: 95vh;
+  border-radius: 0px 10px 10px 0px;
+  background: rgb(0, 0, 0);
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 1) 0%,
+    rgb(41, 43, 41) 95%
+  );
+  border-bottom: 1px solid rgb(212, 203, 203);
+  border-top: 1px solid rgb(240, 235, 235);
+}
+.labels {
+  color: white;
+  font-family: "Bebas Neue", sans-serif;
+  letter-spacing: 4px;
+  font-size: 17px;
+}
+
+.block{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  flex-direction: row;
+  /* background-color: gray; */
+  margin-bottom: 15px;
+}
+.blockIzq{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  /* background-color: purple; */
+  width: 50%;
+  margin: 20px 10px 20px 20px;
+  
+}
+.blockDer{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  /* background-color: purple; */
+  width: 50%;
+  margin: 20px 20px 20px 10px;
+}
+.inputs {
+  width: 85%;
+  height: 4.4vh;
+  margin-right: 10px;
+  border: 0px;
+  background-color: transparent;
+  color: white;
+  margin-bottom: 0px;
+  border-bottom: 3px solid rgb(135, 134, 134);
+  transition: border-bottom 0.6s;
+  resize: none;
+}
+.inputs:focus {
+  outline: 0px;
+  border-bottom: 3px solid rgb(255, 255, 255);
+  transition: border-bottom 0.7s;
+}
+.areatext {
+  width: 80%;
+  height: 10vh;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-right: 15px;
+  margin-bottom: 25px;
+  
+  border: 0px;
+  outline: none;
+  background-color: transparent;
+  border-bottom: 3px solid rgb(135, 134, 134);
+  color: white;
+  transition: border-bottom 0.6s;
+  resize: none;
+}
+.areatext:focus{
+  outline: 0px;
+  border-bottom: 3px solid rgb(255, 255, 255);
+  transition: border-bottom 0.7s;
+}
+.blockIzqSal{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  /* background-color: purple; */
+  width: 49%;
+  margin: 20px 60px 20px 10px;
+}
+
+.blockDerSelect{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  background-color: transparent;
+  color: white;
+  border: 0px;
+  border-bottom: 3px solid rgb(135, 134, 134);
+  width: 25%;
+  margin: 20px 80px 20px 5px;
+}
+.blockDerSelect:focus{
+  outline: 0px;
+  border-bottom: 3px solid rgb(255, 255, 255);
+  transition: border-bottom 0.7s;
+}
+
+.options {
+  background-color: gray;
+}
+.dietsDiv {
+  font-family:"Bebas Neue", sans-serif;
+  letter-spacing: 3px;
+  color: white;
+  background-color: gray;
+  width: 80%;
+  border-radius: 30px;
+  padding: 10px;
+  max-height: 10vh;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.btn{
+  width: 90px;
+  color: white;
+  background-color: transparent;
+  border: 0px;
+  border-bottom: 2px solid rgb(92, 92, 92);
+  cursor: pointer;
+}
+
+.error{
+  color: red;
+  text-align: center;
+  margin: 0px;
+  font-size: 11px;
+  width: 100%;
+  height: 2.5vh;
+  margin-left: 0px;
+}

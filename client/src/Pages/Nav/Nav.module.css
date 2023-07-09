@@ -36,7 +36,7 @@
     outline: 0px;
     border: 0px;
     border-bottom: 1px solid rgb(143, 139, 139);
-    cursor: pointer;
+    cursor: text;
 }
 .butonSearch{
     display: flex;

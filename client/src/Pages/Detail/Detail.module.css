@@ -1,0 +1,107 @@
+.detailPage {
+  display: flex;
+  /* align-items: center; */
+  flex-direction: column;
+  width: 100%;
+  height: auto;
+  padding-top:25px ;
+  /* background-color: red; */
+}
+.buton {
+  width: 4%;
+  height: 5.5vh;
+  position: fixed;
+  left: 0px;
+  top: 15px;
+  background-color: gray;
+  border: 0px;
+  border-bottom: 2px solid rgb(94, 87, 87);
+  border-right: 2px solid rgb(78, 70, 70);
+  border-radius: 0px 20px 20px 0px;
+  cursor: pointer;
+}
+
+.conteinerHead {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  position: relative;
+  flex-wrap: wrap;
+  position: inherit;
+  width: 100%;
+  height: 55vh;
+  /* background-color: rgb(23, 245, 12); */
+}
+.contName {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  position: relative;
+  width: 50%;
+  margin-left: 60px;
+  height: 35vh;
+  padding: 30px;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.786);
+}
+.id{
+    position: absolute;
+    top: 0px;
+}
+.h {
+  margin: 0px;
+}
+.dietHealt {
+  /* background-color: rgba(0, 0, 0, 0.663); */
+  color: white;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: row;
+  margin-top: 50px;
+}
+.contImg {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  height: 45vh;
+  margin-left: 20px;
+}
+.img {
+  width: 420px;
+  border-top: 5px solid rgb(67, 67, 67);
+  border-right: 5px solid rgb(47, 47, 47);
+  border-bottom: 5px solid rgb(47, 47, 47);
+  border-left: 5px solid rgb(67, 67, 67);
+  border-radius: 5px;
+  transition: border 1s;
+}
+.img:hover{
+    border-bottom: 5px solid rgb(67, 67, 67);
+    border-left: 5px solid rgb(39, 38, 38);
+    border-top: 5px solid rgb(39, 38, 38);
+    border-right: 5px solid rgb(67, 67, 67);
+    transition: border 1s;
+}
+
+.contSumStep {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  height: auto;
+  width: 100%;
+  padding: 0px 0px 33px 0px;
+  /* background-color: gray; */
+}
+.containerAll {
+  width: 95%;
+  background-color: rgba(0, 0, 0, 0.786);
+  padding: 20px;
+  color: white;
+}
+.steSum{
+    margin: 10px 20px;
+}
+

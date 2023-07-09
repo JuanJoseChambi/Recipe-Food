@@ -21,4 +21,5 @@
     border-bottom: 3px solid black;
     width: 150px;
     height: 40px;
+    cursor: pointer;
 }

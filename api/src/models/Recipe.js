@@ -3,9 +3,9 @@ const { DataTypes } = require('sequelize');
 module.exports = (sequelize) => {
   sequelize.define('recipe', {
     id:{
-      type: DataTypes.INTEGER,
-      // defaultValue: DataTypes.UUIDV4,
-      autoIncrement: true,
+      type: DataTypes.UUID,
+      defaultValue: DataTypes.UUIDV4,
+      // autoIncrement: true,
       primaryKey: true,
       allowNull: false
     },
@@ -25,7 +25,7 @@ module.exports = (sequelize) => {
       type: DataTypes.INTEGER,
       allowNull: false
     },
-    instructions: { /*analizar receta */
+    stepByStep: { /*analizar receta */
       type: DataTypes.TEXT,
       allowNull: false
     },

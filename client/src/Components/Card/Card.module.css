@@ -1,8 +1,4 @@
 .card {
-  display: flex;
-  /* justify-content: center; */
-  align-items: center;
-  flex-direction: column;
   width: 310px;
   height: 64vh;
   background-color: rgb(207, 207, 208);
@@ -11,6 +7,7 @@
   margin: 30px;
   margin-top: 50px;
   border-radius: 10px;
+  
 }
 
 .img {
@@ -46,5 +43,13 @@
 .diets{
     display: flex;
     flex-direction: column;
-    /* background-color: red; */
+}
+
+.nav{
+  text-decoration: none;
+  color: black;
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+  flex-direction: column;
 }
