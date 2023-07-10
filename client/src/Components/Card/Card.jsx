@@ -1,8 +1,10 @@
+// import { useSelector } from "react-redux";
 import style from "./Card.module.css";
 import { NavLink } from "react-router-dom";
 
 
-export default function Card({ recipe }) {
+export default function Card({ recipe }) {//
+
   return (
     <div className={style.card}>
       <NavLink to={`/Detail/${recipe.id}`} className={style.nav}>

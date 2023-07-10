@@ -1,4 +1,3 @@
-import { Route, Routes } from "react-router-dom";
 import "./App.css";
 import Home from "./Pages/Home/Home";
 import LandingPage from "./Pages/LandingPage/LandingPage";
@@ -6,10 +5,17 @@ import CreateRecipe from "./Pages/CreateRecipe/CreateRecipe";
 import Error from "./Pages/Error/Error";
 import Detail from "./Pages/Detail/Detail";
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { Route, Routes } from "react-router-dom";
+import { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux"
+import { setRecipes } from "./Redux/Reducers/Recipes/recipeSlice";
+
 
 export default function App() {
-  const [recipes, setRecipes] = useState([]);
+  const dispatch = useDispatch();
+  const { recipes }  = useSelector(state => state.recipes)
+
+  console.log(recipes);
 
   //Renderizar Recetas-------------------------------------------------------
   useEffect(() => {
@@ -24,11 +30,11 @@ export default function App() {
             diets: ele.diets.map((ele) => ele.name),
           };
         });
-        setRecipes(info);
+        dispatch(setRecipes(info))
       }
     };
     allInfo();
-  }, []);
+  }, [dispatch]);
   //---------------------------------------------------------------------------
 
   //Buscar por Name------------------------------------------------------------
@@ -43,7 +49,7 @@ export default function App() {
           diets: ele.diets.map((ele) => ele.name),
         };
       });
-      setRecipes(info)
+      dispatch(setRecipes(info))
     }else{
       return alert("El Receta no se encontro")
     }

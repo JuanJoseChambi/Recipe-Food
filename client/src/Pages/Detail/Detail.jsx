@@ -24,7 +24,7 @@ export default function Deatil() {
             healthScore,
             stepByStep,
             image,
-            diets: diets.map((ele) => ele.name),
+            diets: diets.map((ele) => `| ${ele.name} `),
           };
           // return {
           //   id: ele.id,
@@ -36,7 +36,6 @@ export default function Deatil() {
           //   diets: ele.diets,
           // };
 
-        console.log(allrecipe);
         setRecipe(allrecipe);
       } else {
         window.alert("La receta no existe");
