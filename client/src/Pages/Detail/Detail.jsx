@@ -24,7 +24,7 @@ export default function Deatil() {
             healthScore,
             stepByStep,
             image,
-            diets: diets.map((ele) => `| ${ele.name} `),
+            diets: diets.map((ele) => <h4 className={style.dietas}>{ele.name}</h4>),
           };
           // return {
           //   id: ele.id,
@@ -45,7 +45,7 @@ export default function Deatil() {
   }, [id]);
 
   return (
-    <div className={style.detailPage}>
+      <div className={style.detailPage}>
       <NavLink to="/Home">
         <button className={style.buton}>Home</button>
       </NavLink>
@@ -57,10 +57,13 @@ export default function Deatil() {
 
           <div className={style.contName}>
             <h3 className={style.id}># {recipe.id}</h3>
-            <h1 className={style.h}>{recipe.name}</h1>
+            <h1 className={style.name}>{recipe.name}</h1>
             <div className={style.dietHealt}>
               <h4>Health Score: {recipe.healthScore}</h4>
-              <h4>Dieta: {recipe.diets}</h4>
+              <div className={style.containerDiets}>
+                <h4>Diets:</h4>
+                <h4 className={style.miniBlockDiets}>{recipe.diets}</h4>
+              </div>
             </div>
           </div>
         </div>

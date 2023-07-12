@@ -1,25 +1,85 @@
-.landing{
+.all{
     display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+    flex-direction: row;
+    overflow:hidden;
+    /* background-color: red; */
+}
 
-    background-color: rgb(226, 225, 225);
-    width: 40%;
-    height: 100vh;
-    position: absolute;
-    right: 0px;
+.landing {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    margin-top: 15px;
+    margin-left: 15px;
+    height: 95vh;
+    width: 38%;
+    background-color: #222;
+    color: white;
+    border-radius: 10px;
+  }
+  
+  .h1 {
+    font-size: 65px;
+    margin-bottom: 3px;
+    font-family: 'Bacasime Antique', serif;
+    /* background-color: violet; */
+  }
+.NameX{
+    display: flex;
+    flex-direction: row;
+    /* background-color: rgb(43, 43, 43); */
 }
-.h1{
-    margin: 0px;
-    margin-bottom: 10px;
-}
-.buton{
-    background-color: rgb(255, 255, 255);
+.inputName{
+    background-color: #2d2d2d;
     border: 0px;
-    outline: 0px;
-    border-bottom: 3px solid black;
-    width: 150px;
-    height: 40px;
-    cursor: pointer;
+    border-bottom: 1px solid black;
+    padding: 5px 10px;
+    color: white;
+    outline: none;
+    border-radius: 10px 0px 0px 10px;
 }
+.btn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    border: 0px;
+    width: 30px;
+    border-bottom: 1px solid black;
+    border-radius: 0px 10px 10px 0px;
+    transition: background-color .5s;
+}
+.btn:hover{
+    background-color: rgb(60, 59, 59);
+}
+.mesage{
+    /* background-color: purple; */
+    text-align: center;
+    font-family: 'Bacasime Antique', serif;
+
+}  
+  .button {
+    padding: 8px 15px;
+    font-size: 1.5rem;
+    background-color: rgb(49, 48, 48);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    text-decoration: none;
+    border-bottom: 3px solid black;
+    border-top: 3px solid black;
+    transition: border .5s;
+    font-family: 'Bacasime Antique', serif;
+    transition: background-color .5s;
+  }
+  
+  .button:hover {
+    background-color: rgb(59, 56, 56);
+  }
+  .image1 img{
+    width: 102%;
+    margin: 0px;
+    margin-top: 2px;
+  }

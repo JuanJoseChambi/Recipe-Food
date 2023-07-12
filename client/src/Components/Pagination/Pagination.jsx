@@ -1,7 +1,7 @@
 export default function Pagination () {
     return (
         <div>
-            paginacion
+            <button></button>
         </div>
     )
 }

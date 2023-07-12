@@ -1,11 +1,11 @@
 .card {
   width: 310px;
   height: 64vh;
-  background-color: rgb(207, 207, 208);
+  background-image: url("https://media.istockphoto.com/id/606212372/es/foto/marr%C3%B3n-oscuro-fondo-de-madera-vintage.jpg?s=612x612&w=0&k=20&c=tXRcQs3Fx-GHe7oxjyB4IlTOpG5PlJWnBwf26qJEmQ0=");
 
   text-align: center;
   margin: 30px;
-  margin-top: 50px;
+  margin-top: 25px;
   border-radius: 10px;
   
 }
@@ -43,6 +43,11 @@
 .diets{
     display: flex;
     flex-direction: column;
+    color: white;
+    font-family: 'Bebas Neue', sans-serif;
+    letter-spacing: 3px;
+    /* background-color: gray; */
+    padding: 0px 10px;
 }
 
 .nav{

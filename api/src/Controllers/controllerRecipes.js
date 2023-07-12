@@ -1,10 +1,8 @@
 const { Router } = require('express');
 const router = Router();
 const { getApi } = require("../Handlers/getApi");
-const axios = require("axios");
 require("dotenv").config();
-const { API_KEY } = process.env;
-const { Recipe, Diet } = require("../db");
+const { Recipe } = require("../db");
 
 
 // Buscar por Name--------------------------------------------
@@ -29,7 +27,6 @@ router.get("/" , async (req, res) => {
   })
   // --------------------------------------------------------------
   
-  
   // Buscar por ID--------------------------------------------------
 
   router.get("/:idRecipe",async (req, res) => {
@@ -47,6 +44,37 @@ router.get("/" , async (req, res) => {
       res.status(500).json({error: error.message})
     }
   })
+
+// --------------------------------------------------------------
+
+// Crear Receta--------------------------------------------------
+router.post("/" , async (req, res) => {
+  const { name, image, summary, stepByStep, healthScore ,diets} = req.body;
+
+  if (name && image && summary && stepByStep && healthScore) {
+
+    const recipeCreatedInDB = await Recipe.create({
+      name,
+      image,
+      summary,
+      stepByStep,
+      healthScore,
+      createInDB:true,
+    });
+
+    await recipeCreatedInDB.addDiet(diets);
+    res.status(200).json(recipeCreatedInDB);
+    // res.status(200).send("Receta creada!");
+  } else {
+    res.status(400).send("Faltan datos");
+  }
+});
+
+// --------------------------------------------------------------
+
+module.exports = router;
+
+
 
 //   const URL = "https://api.spoonacular.com/recipes/";
   
@@ -104,32 +132,3 @@ router.get("/" , async (req, res) => {
 //     res.status(500).json({ error: error.message });
 //   }
 // });
-
-// --------------------------------------------------------------
-
-// Crear Receta--------------------------------------------------
-router.post("/" , async (req, res) => {
-  const { name, image, summary, stepByStep, healthScore ,diets} = req.body;
-
-  if (name && image && summary && stepByStep && healthScore) {
-
-    const recipeCreatedInDB = await Recipe.create({
-      name,
-      image,
-      summary,
-      stepByStep,
-      healthScore,
-      createInDB:true,
-    });
-
-    await recipeCreatedInDB.addDiet(diets);
-    res.status(200).json(recipeCreatedInDB);
-    // res.status(200).send("Receta creada!");
-  } else {
-    res.status(400).send("Faltan datos");
-  }
-});
-
-// --------------------------------------------------------------
-
-module.exports = router;

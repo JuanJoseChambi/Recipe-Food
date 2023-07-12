@@ -1,7 +1,6 @@
 import { NavLink } from "react-router-dom";
 import { useState } from "react";
 import style from "./CreateRecipe.module.css";
-import imagen from "../../Assets/main_img.png";
 import validation from "./validation";
 
 export default function CreateRecipe({ createRecipe }) {
@@ -64,9 +63,8 @@ export default function CreateRecipe({ createRecipe }) {
         <button className={style.buton}>Home</button>
       </NavLink>
       <div className={style.image}>
-        <img src={imagen} alt="sss" />
+        <img src="https://images.unsplash.com/photo-1530554764233-e79e16c91d08?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=387&q=80" alt="Image-from-burguer" />
       </div>
-
       <form className={style.divForm}>
         <div className={style.block}>
           <div className={style.blockIzq}>
@@ -153,8 +151,8 @@ export default function CreateRecipe({ createRecipe }) {
           </div>
 
 
-        <select value={recipeNew.diets} name="Diets" required onChange={handleSelectChange} aria-multiselectable="true" className={style.blockDerSelect}>
-          <option value="none" className={style.options}>
+        <select value={recipeNew.diets} name="Diets" required onChange={handleSelectChange} aria-multiselectable className={style.blockDerSelect}>
+          <option value="" className={style.options}>
             Diet
           </option>
           <option value="1" className={style.options}>

@@ -4,8 +4,14 @@ import Nav from "../Nav/Nav";
 
 
 export default function Home({recipes, searchRecipe}) {
+
+  const miEstilo = {
+    backgroundColor: "black"
+    // backgroundImage: `url(https://images.pexels.com/photos/1633525/pexels-photo-1633525.jpeg)`
+  };
+
   return (
-    <div > 
+    <div style={miEstilo}> 
       <div className={style.nav}>
         <Nav className={style.nav} searchRecipe={searchRecipe}/>
       </div>

@@ -1,4 +1,4 @@
-import "./App.css";
+import style from "./App.css"
 import Home from "./Pages/Home/Home";
 import LandingPage from "./Pages/LandingPage/LandingPage";
 import CreateRecipe from "./Pages/CreateRecipe/CreateRecipe";
@@ -13,11 +13,11 @@ import { setRecipes } from "./Redux/Reducers/Recipes/recipeSlice";
 
 export default function App() {
   const dispatch = useDispatch();
-  const { recipes }  = useSelector(state => state.recipes)
+  const  recipes   = useSelector(state => state.recipes.filtered)
 
-  console.log(recipes);
 
-  //Renderizar Recetas-------------------------------------------------------
+
+  // Renderizar Recetas-------------------------------------------------------
   useEffect(() => {
     const allInfo = async () => {
       const { data } = await axios.get("http://localhost:3001/recipes");
@@ -28,6 +28,9 @@ export default function App() {
             name: ele.name,
             image: ele.image,
             diets: ele.diets.map((ele) => ele.name),
+            // diets: ele.diets.map((ele) => <li key={ele.name}>{ele.name}</li>),
+            createInDB: ele.createInDB,
+            healthScore: ele.healthScore
           };
         });
         dispatch(setRecipes(info))
@@ -47,6 +50,9 @@ export default function App() {
           name: ele.name,
           image: ele.image,
           diets: ele.diets.map((ele) => ele.name),
+          // diets: ele.diets.map((ele) => <li key={ele.name}>{ele.name}</li>),
+          createInDB: ele.createInDB,
+          healthScore: ele.healthScore
         };
       });
       dispatch(setRecipes(info))
@@ -74,7 +80,7 @@ export default function App() {
 
 
   return (
-    <div>
+    <div className={style.App}>
       <Routes>
         <Route path="/" element={<LandingPage />} />
         <Route path="/Home" element={<Home recipes={recipes} searchRecipe={searchRecipe}/>} />
