@@ -60,7 +60,7 @@ export default function CreateRecipe({ createRecipe }) {
   return (
     <div className={style.CreatePage}>
       <NavLink to="/Home">
-        <button className={style.buton}>Home</button>
+        <button className={style.buton}><i class='bx bx-left-arrow-alt'></i></button>
       </NavLink>
       <div className={style.image}>
         <img src="https://images.unsplash.com/photo-1530554764233-e79e16c91d08?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=387&q=80" alt="Image-from-burguer" />
@@ -150,7 +150,6 @@ export default function CreateRecipe({ createRecipe }) {
             <p className={style.error}>{errors.healthScore}</p>
           </div>
 
-
         <select value={recipeNew.diets} name="Diets" required onChange={handleSelectChange} aria-multiselectable className={style.blockDerSelect}>
           <option value="" className={style.options}>
             Diet
@@ -187,15 +186,12 @@ export default function CreateRecipe({ createRecipe }) {
           </option>
         </select>
 
-            
         </div>
 
 
         <div className={style.dietsDiv}>Dietas: {recipeNew.diets}</div>
         <p className={style.error}>{errors.diets}</p>
-        <button type="submit" className={style.btn} onClick={handlerSubmit}>
-          Crear Receta!
-        </button>
+        <button type="submit" className={style.btn} onClick={handlerSubmit}> Crear Receta! </button>
       </form>
     </div>
   );

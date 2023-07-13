@@ -6,16 +6,14 @@ import Error from "./Pages/Error/Error";
 import Detail from "./Pages/Detail/Detail";
 import axios from "axios";
 import { Route, Routes } from "react-router-dom";
-import { useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux"
+import { useEffect, useState } from "react";
+import { useSelector, useDispatch,  } from "react-redux"
 import { setRecipes } from "./Redux/Reducers/Recipes/recipeSlice";
 
 
 export default function App() {
   const dispatch = useDispatch();
-  const  recipes   = useSelector(state => state.recipes.filtered)
-
-
+  const recipes   = useSelector(state => state.recipes.filtered);
 
   // Renderizar Recetas-------------------------------------------------------
   useEffect(() => {
@@ -57,7 +55,7 @@ export default function App() {
       });
       dispatch(setRecipes(info))
     }else{
-      return alert("El Receta no se encontro")
+     alert("La receta no existe")
     }
   }
 

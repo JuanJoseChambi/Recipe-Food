@@ -1,32 +1,33 @@
 .card {
   width: 310px;
   height: 64vh;
-  background-image: url("https://media.istockphoto.com/id/606212372/es/foto/marr%C3%B3n-oscuro-fondo-de-madera-vintage.jpg?s=612x612&w=0&k=20&c=tXRcQs3Fx-GHe7oxjyB4IlTOpG5PlJWnBwf26qJEmQ0=");
-
+  background-color: #171212;
+  position: relative;
+  z-index: 100;
   text-align: center;
   margin: 30px;
-  margin-top: 25px;
+  margin-top: 30px;
   border-radius: 10px;
-  
+  border: 2px solid rgb(52, 52, 52);
+  box-shadow: 0px 0px 20px 13px rgb(33, 33, 33);
 }
 
 .img {
   display: flex;
   justify-content: center;
   align-items: center;
-  /* position: relative; */
   width: 100%;
-  /* background-color: red; */
   height: 35vh;
   margin: 0px;
+  user-select: none;
+  border-bottom: 2px solid rgb(52, 52, 52);
 }
 .img img {
-    /* position: absolute; */
+    user-select: none;
     width: 100%;
     height: 35vh;
     object-fit: cover;
     border-radius: 10px 10px 0px 0px;
-  /* background-color: yellow; */
 }
 .name{
     display: flex;
@@ -34,17 +35,18 @@
     justify-content: center;
     min-height: 55px;
     width: 90%;
-    background-color: white;
+    background-color: #F3F9D2;
+    border-radius: 3px;
     font-size:18px;
-    font-family: 'Bebas Neue', sans-serif;
-    letter-spacing: 2px;
+    font-family: 'Bacasime Antique', serif;
     padding: 0px;
 }
 .diets{
     display: flex;
     flex-direction: column;
     color: white;
-    font-family: 'Bebas Neue', sans-serif;
+    /* font-family: 'Bebas Neue', sans-serif; */
+    font-family: 'Bacasime Antique', serif;
     letter-spacing: 3px;
     /* background-color: gray; */
     padding: 0px 10px;

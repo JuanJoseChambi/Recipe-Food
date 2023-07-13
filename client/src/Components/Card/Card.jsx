@@ -11,9 +11,7 @@ export default function Card({ recipe }) {//
         <div className={style.img}>
           <img src={recipe.image} alt={recipe.name} />
         </div>
-
         <h2 className={style.name}>{recipe.name}</h2>
-
         <div className={style.diets}>
           <p>{recipe.diets}</p>
         </div>

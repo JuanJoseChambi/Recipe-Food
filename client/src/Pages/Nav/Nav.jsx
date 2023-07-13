@@ -3,7 +3,7 @@ import Lupa from "../../Assets/search.png"
 import Logo from "../../Assets/logo.png"
 import { NavLink } from "react-router-dom";
 import { useState } from "react";
-import { filterRecipe, originRecipe, orderRecipes, healthyFoodLevel, resteAll} from "../../Redux/Reducers/Recipes/recipeSlice";
+import { filterRecipe, originRecipe, orderRecipes, healthyFoodLevel, resteAll } from "../../Redux/Reducers/Recipes/recipeSlice";
 import { useDispatch } from "react-redux"
  
 export default function Nav ({searchRecipe}) {
@@ -14,7 +14,7 @@ export default function Nav ({searchRecipe}) {
     function handlerChange(evento){
         const name = evento.target.value;
         setName(name);
-        searchRecipe(name);
+        searchRecipe(name)
     }
 
     function handlerFilter (evento) {

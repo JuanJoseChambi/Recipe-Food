@@ -1,137 +1,163 @@
 .detailPage {
   display: flex;
   /* align-items: center; */
-  flex-direction: column;
+  flex-direction: row;
   width: 100%;
-  height: auto;
-  padding-top:25px ;
+  max-height: 100vh;
   /* background-color: red; */
 }
 .buton {
-  width: 4%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 45px;
   height: 5.5vh;
-  position: fixed;
+  position: absolute;
+  z-index: 100;
+  font-size: 20px;
   left: 0px;
-  top: 15px;
-  background-color: gray;
-  border: 0px;
-  border-bottom: 2px solid rgb(94, 87, 87);
-  border-right: 2px solid rgb(78, 70, 70);
+  top: 5px;
+  color: white;
+  background-color: #1d1b1b;
+  border: 1px solid rgb(127, 127, 127);
+  border-left: 0px;
   border-radius: 0px 20px 20px 0px;
   cursor: pointer;
+  box-shadow:0px 0px 15px 3px rgb(0, 0, 0);
 }
-
-.conteinerHead {
+/* Lado Izquierdo -------------------------- */
+.block1 {
   display: flex;
-  flex-direction: row;
+  /* justify-content: space-around; */
   align-items: center;
+  flex-direction: column;
   position: relative;
   flex-wrap: wrap;
   position: inherit;
-  width: 100%;
-  height: 55vh;
+  width: 45%;
+  height: 100vh;
   /* background-color: rgb(23, 245, 12); */
 }
 .contName {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
   position: relative;
-  width: 55%;
-  height: 40vh;
-  margin-left: 60px;
+  width: 100%;
+  min-height: 150px;
   background-color: rgba(0, 0, 0, 0.786);
   color: white;
+  margin: 40px 0px 0px 8px;
   /* background-color: rgba(149, 32, 32, 0.786); */
 }
 .id{
-    top: 0px;
-    /* background-color: blue; */
-    margin: 0px;
-    padding: 10px;
+  /* font-family: 'Bacasime Antique', serif; */
+  font-family:"Bebas Neue", sans-serif;
+  letter-spacing: 1px;
+  position:absolute;
+  top: 7px;
+  left: 30px;
+  /* background-color: blue; */
+  margin: 0px;
 }
 .name {
-  margin: 20px 20px 20px 10px;
   padding: 0px;
-  width: 95%;
+  width: 90%;
   /* background-color: rgb(28, 28, 90); */
   text-align: center;
+  margin: 0px;
+  font-family: 'Bacasime Antique', serif;
+  letter-spacing: 2px;
 }
+
+.contImg {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 50%;
+  background-color: purple;
+  border: 3px solid rgb(48, 48, 48);
+  border-radius: 10px;
+  margin: 20px 0px 20px 0px;
+}
+.img {
+  width: 100%;
+  background-color: red;
+  border-radius: 10px;
+  box-shadow: 0px 0px 20px 20px rgba(0, 0, 0, 0.359);
+  transition: border 1s;
+}
+
 .dietHealt {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
   flex-direction: row;
-  margin-top: 20px;
-  /* position: absolute; */
-  /* bottom: 0px; */
   width: 100%;
-  /* background-color: rgba(189, 15, 15, 0.663); */
+  min-height: 113px;
+  margin: 20px 0px 0px 8px;
+  background-color: rgba(0, 0, 0, 0.786);
   color: white;
+  font-family: 'Bacasime Antique', serif;
+  letter-spacing: 2px;
 }
 .containerDiets{
   display: flex;
   flex-direction: row;
+  justify-content: center;
+  align-items: center;
   /* background-color: purple; */
   max-width: 70%;
-  height:10vh;
+  min-height:10vh;
 }
 .dietas{
   display: inline-block;
-  background-color: red;
+  background-color: rgb(23, 23, 23);
   max-width: 100%;
-  margin: 0px 5px;
+  margin: 2px 5px;
   border-radius: 50px;
-  padding: 3px 5px;
-  font-family: 'Bebas Neue', sans-serif;
-  letter-spacing: 2px;
+  padding: 3px 8px 3px 8px;
+  font-family: 'Bacasime Antique', serif;
+  letter-spacing: .5px;
+  border: 1px solid white;
 }
 .miniBlockDiets{
   /* background-color: blue; */
   width: 100%;
-
+  max-height: 100px;
+ 
 }
-.contImg {
+
+/*--------------------------------------------------- */
+
+
+/* Resumen y Pasos ----------------------------------- */
+.block2 {
   display: flex;
-  justify-content: center;
+  /* justify-content: center; */
   align-items: center;
-
-  height: 45vh;
-  margin-left: 20px;
-}
-.img {
-  width: 420px;
-  border-top: 5px solid rgb(67, 67, 67);
-  border-right: 5px solid rgb(47, 47, 47);
-  border-bottom: 5px solid rgb(47, 47, 47);
-  border-left: 5px solid rgb(67, 67, 67);
-  border-radius: 5px;
-  transition: border 1s;
-}
-.img:hover{
-    border-bottom: 5px solid rgb(67, 67, 67);
-    border-left: 5px solid rgb(39, 38, 38);
-    border-top: 5px solid rgb(39, 38, 38);
-    border-right: 5px solid rgb(67, 67, 67);
-    transition: border 1s;
-}
-
-.contSumStep {
-  display: flex;
-  justify-content: center;
   flex-direction: column;
-  align-items: center;
-  height: auto;
-  width: 100%;
-  padding: 0px 0px 33px 0px;
+  min-height: 100vh;
+  width: 55%;
+  margin: 0px;
   /* background-color: gray; */
 }
 .containerAll {
-  width: 95%;
+  width: 93%;
   background-color: rgba(0, 0, 0, 0.786);
-  padding: 20px;
   color: white;
+  margin: 15px;
+  height: auto;
+  padding: 5px 10px;
 }
 .steSum{
-    margin: 10px 20px;
+  text-align: center;
+  font-family: 'Bacasime Antique', serif;
+  color: rgba(255, 255, 255, 0.874);
+  margin: 0px;
+
+  padding: 3px 10px 10px 10px;
 }
 
+/* ---------------------------------------------------- */

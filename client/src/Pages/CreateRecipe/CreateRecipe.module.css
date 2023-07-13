@@ -7,17 +7,23 @@
   background-color: rgb(17, 16, 16);
 }
 .buton {
-  width: 4%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 45px;
   height: 5.5vh;
   position: absolute;
+  z-index: 100;
+  font-size: 20px;
   left: 0px;
-  top: 15px;
-  background-color: gray;
-  border: 0px;
-  border-bottom: 2px solid rgb(94, 87, 87);
-  border-right: 2px solid rgb(78, 70, 70);
+  top: 5px;
+  color: white;
+  background-color: #1d1b1b;
+  border: 1px solid rgb(127, 127, 127);
+  border-left: 0px;
   border-radius: 0px 20px 20px 0px;
   cursor: pointer;
+  box-shadow:0px 0px 15px 3px rgb(0, 0, 0);
 }
 .image{
   display: flex;
@@ -25,8 +31,10 @@
   width: 50%;
   height: 100vh;
   background-color: rgb(17, 16, 16);
+  user-select: none;
 }
 .image img{
+  user-select: none;
   margin-left: 5px;
 }
 .divForm {
@@ -37,9 +45,10 @@
   width: 50%;
   height: 93vh;
   margin-right: 20px;
-  background-color: #1d1b1b;
-  border-radius: 20px;
-  border: 1px solid rgba(128, 128, 128, 0.227);
+  background-color: #171212;
+  border-radius: 8px;
+  border: 1px solid rgba(66, 65, 65, 0.227);
+  box-shadow: 0px 0px 25px 10px rgb(1, 1, 1);
 }
 .labels {
   color: white;
@@ -91,6 +100,7 @@
   border-bottom: 3px solid rgb(255, 255, 255);
   transition: border-bottom 0.7s;
 }
+
 .areatext {
   width: 80%;
   height: 10vh;
@@ -155,8 +165,16 @@
 }
 
 .btn{
-  width: 90px;
+  width: 100px;
   color: white;
+  background-color: transparent;
+  border: 0px;
+  border-bottom: 2px solid rgb(92, 92, 92);
+  cursor: pointer;
+}
+.btn:invalid{
+  width: 100px;
+  color: rgb(79, 77, 77);
   background-color: transparent;
   border: 0px;
   border-bottom: 2px solid rgb(92, 92, 92);

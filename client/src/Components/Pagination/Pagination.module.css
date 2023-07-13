@@ -1,0 +1,51 @@
+.pagination{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 128px;
+    background-color: rgb(0, 0, 0);
+    max-width: 30%;
+    height: 5px;
+    border-radius: 30px;
+    border: 1px solid rgb(117, 116, 116);
+}
+.actualPage{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(34, 33, 33);
+    color: rgb(233, 228, 228);
+    width: 20px;
+    height: 15px;
+    padding: 12px 12px;
+    border-radius: 5px;
+    margin: 0px 5px 0px 5px;
+    border: 0px;
+    cursor: pointer;
+    font-size: 15px;
+    border: 1px solid rgb(228, 226, 226);
+    transition: font-size .5s, color .5s;
+}
+.pages:hover{
+    color: white;
+    font-size: 19px;
+    border: 1px solid rgb(208, 208, 208);
+}
+.otros{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(34, 33, 33);
+    color: rgb(150, 150, 150);
+    width: 20px;
+    height: 15px;
+    padding: 12px 12px;
+    border-radius: 5px;
+    margin: 0px 5px 0px 5px;
+    border: 0px;
+    cursor: pointer;
+    font-size: 15px;
+    border: 1px solid rgb(136, 136, 136);
+    transition: font-size .5s, color .5s;
+}

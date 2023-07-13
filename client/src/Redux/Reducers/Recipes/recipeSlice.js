@@ -4,6 +4,7 @@ const initialState = {
     recipes: [],
     filtered: [],
     page: 1,
+    error: undefined,
 };
 /*-------------------------------------------------------------------------------------------|
 | En filter recipe y origin recipe no se puede usar desde el state.filtered por que          |
@@ -14,10 +15,14 @@ export const recipeSlice = createSlice ({
     name: 'recipes',
     initialState: initialState,
     reducers: {
+        //Info de Back-----------------------------------------------------------------------
         setRecipes: (state, action) => {
             state.recipes = action.payload;
             state.filtered = action.payload;
         },
+        //------------------------------------------------------------------------------------
+
+        //Filtros-----------------------------------------------------------------------------
         filterRecipe: (state, action) => {      
             let dietsType = action.payload;     
             if (dietsType === "allDiets") {     
@@ -59,6 +64,10 @@ export const recipeSlice = createSlice ({
         resteAll: (state, action) => {
             state.filtered = state.recipes;
         },
+        //------------------------------------------------------------------------------------
+
+        //Paginacion--------------------------------------------------------------------------
+        // 1 paso crear los estados de el numero de la pagina
         numPage: (state, action) => {
             const numPage = action.payload
             state.page = numPage
@@ -68,11 +77,17 @@ export const recipeSlice = createSlice ({
         },
         prevPage: ( state, action) => {
             state.page--
-        }
+        },
+        //------------------------------------------------------------------------------------
 
+        //Errores-----------------------------------------------------------------------------
+
+        setError: (state, action) => {
+            state.error = 1
+        }
     }
 })
 
-export const {setRecipes, filterRecipe, originRecipe, orderRecipes, healthyFoodLevel, resteAll, numPage, nextPage, prevPage} = recipeSlice.actions;
+export const {setRecipes, filterRecipe, originRecipe, orderRecipes, healthyFoodLevel, resteAll, numPage, nextPage, prevPage, setError} = recipeSlice.actions;
 
 export default recipeSlice.reducer;
