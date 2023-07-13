@@ -4,7 +4,7 @@ const initialState = {
     recipes: [],
     filtered: [],
     page: 1,
-    error: undefined,
+    // favoritos:[]
 };
 /*-------------------------------------------------------------------------------------------|
 | En filter recipe y origin recipe no se puede usar desde el state.filtered por que          |
@@ -21,7 +21,6 @@ export const recipeSlice = createSlice ({
             state.filtered = action.payload;
         },
         //------------------------------------------------------------------------------------
-
         //Filtros-----------------------------------------------------------------------------
         filterRecipe: (state, action) => {      
             let dietsType = action.payload;     
@@ -65,7 +64,6 @@ export const recipeSlice = createSlice ({
             state.filtered = state.recipes;
         },
         //------------------------------------------------------------------------------------
-
         //Paginacion--------------------------------------------------------------------------
         // 1 paso crear los estados de el numero de la pagina
         numPage: (state, action) => {
@@ -79,15 +77,14 @@ export const recipeSlice = createSlice ({
             state.page--
         },
         //------------------------------------------------------------------------------------
+        //Extra: Favoritos--------------------------------------------------------------------
 
-        //Errores-----------------------------------------------------------------------------
-
-        setError: (state, action) => {
-            state.error = 1
-        }
+        // addFav: (state, action) => {
+        //     state.favoritos = action.payload;
+        // }
     }
 })
 
-export const {setRecipes, filterRecipe, originRecipe, orderRecipes, healthyFoodLevel, resteAll, numPage, nextPage, prevPage, setError} = recipeSlice.actions;
+export const {setRecipes, filterRecipe, originRecipe, orderRecipes, healthyFoodLevel, resteAll, numPage, nextPage, prevPage, refreshState } = recipeSlice.actions;
 
 export default recipeSlice.reducer;

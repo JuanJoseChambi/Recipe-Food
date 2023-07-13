@@ -1,9 +1,24 @@
 import { NavLink } from "react-router-dom";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import style from "./CreateRecipe.module.css";
 import validation from "./validation";
+import axios from "axios";
+import { refreshState } from "../../Redux/Reducers/Recipes/recipeSlice";
+import { useDispatch } from "react-redux";
 
-export default function CreateRecipe({ createRecipe }) {
+export default function CreateRecipe({ createRecipe}) {
+  const dispatch = useDispatch()
+  const [dietsapi, setDietsapi] = useState([]);
+
+  useEffect(() => {
+    const dietasApi = async () => {
+      const {data} = await axios.get("http://localhost:3001/diets");
+      const obj = data.map(ele => ele);
+      setDietsapi(obj)
+    }
+    dietasApi();
+  },[])
+
   const [recipeNew, setRecipeNew] = useState({
     name: "",
     image: "",
@@ -21,6 +36,17 @@ export default function CreateRecipe({ createRecipe }) {
     stepByStep: "",
     healthScore: "",
   });
+
+  let dietasview = [];
+
+  for (let i = 0; i < recipeNew.diets.length; i++) {
+    const selectedDiet = dietsapi.find(diet => diet.id == recipeNew.diets[i]);
+    if (selectedDiet) {
+      dietasview.push(selectedDiet.name);
+    }
+  }
+
+  const infoDiets = dietasview.map(ele => <h5 className={style.dietsInBlock}>{ele}</h5>)
 
   function handlerChange(event) {
     setRecipeNew({
@@ -55,12 +81,13 @@ export default function CreateRecipe({ createRecipe }) {
       healthScore: "",
     })
     createRecipe(recipeNew);
+    dispatch(refreshState())
   }
 
   return (
     <div className={style.CreatePage}>
       <NavLink to="/Home">
-        <button className={style.buton}><i class='bx bx-left-arrow-alt'></i></button>
+        <button className={style.buton}><i className='bx bx-left-arrow-alt'></i></button>
       </NavLink>
       <div className={style.image}>
         <img src="https://images.unsplash.com/photo-1530554764233-e79e16c91d08?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=387&q=80" alt="Image-from-burguer" />
@@ -189,9 +216,11 @@ export default function CreateRecipe({ createRecipe }) {
         </div>
 
 
-        <div className={style.dietsDiv}>Dietas: {recipeNew.diets}</div>
+        <div className={style.dietsDiv}>Dietas: {infoDiets}</div>
         <p className={style.error}>{errors.diets}</p>
-        <button type="submit" className={style.btn} onClick={handlerSubmit}> Crear Receta! </button>
+        <button type="submit" 
+        className={(recipeNew.name && recipeNew.image && recipeNew.stepByStep && recipeNew.summary && recipeNew.healthScore && recipeNew.diets.length !== 0 && !errors.image)?style.btn:style.btn_invalid}
+         onClick={handlerSubmit}> Crear Receta!</button>
       </form>
     </div>
   );

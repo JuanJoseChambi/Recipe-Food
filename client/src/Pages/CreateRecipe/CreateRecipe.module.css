@@ -152,33 +152,64 @@
   background-color: gray;
 }
 .dietsDiv {
-  font-family:"Bebas Neue", sans-serif;
-  letter-spacing: 3px;
+  /* font-family:"Bebas Neue", sans-serif; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  font-family: 'Bacasime Antique', serif;
+  letter-spacing: 2px;
   color: white;
   background-color: rgb(51, 45, 45);
   width: 80%;
   border-radius: 30px;
   padding: 10px;
-  max-height: 10vh;
-  margin-top: 15px;
+  max-height: 20vh;
+  margin-top: 5px;
   margin-bottom: 15px;
+}
+.dietsInBlock{
+  text-align: center;
+  display: inline-block;
+  margin: 2px 5px;
+  background-color: rgb(38, 33, 33);
+  width: auto;
+  padding: 5px 10px;
+  border-radius: 15px;
+  border: 1px solid rgb(142, 140, 140);
+}
+.btn_invalid{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 120px;
+  height: 35px;
+  color: rgb(58, 55, 55);
+  background-color: rgba(139, 139, 139, 0.575);
+  border: 0px;
+  border: 2px solid rgba(106, 104, 104, 0.285);
+  padding: 8px;
+  border-radius: 15px;
+  box-shadow: 0px 0px 10px 4px black;
+  pointer-events: none;
+  user-select: none;
 }
 
 .btn{
-  width: 100px;
-  color: white;
-  background-color: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 120px;
+  height: 35px;
+  color: black;
+  background-color: rgb(203, 202, 202);
   border: 0px;
-  border-bottom: 2px solid rgb(92, 92, 92);
+  border: 2px solid rgb(106, 104, 104);
   cursor: pointer;
-}
-.btn:invalid{
-  width: 100px;
-  color: rgb(79, 77, 77);
-  background-color: transparent;
-  border: 0px;
-  border-bottom: 2px solid rgb(92, 92, 92);
-  cursor: pointer;
+  padding: 8px;
+  border-radius: 15px;
+  box-shadow: 0px 0px 10px 4px black;
+  user-select: none;
 }
 
 .error{

@@ -7,7 +7,8 @@
     height: 105px;
     position: fixed;
     z-index: 9999;
-    border-bottom: 2px solid rgb(48, 46, 46);    
+    border-bottom: 2px solid rgb(33, 32, 32);  
+    box-shadow: 0px 0px 20px 10px rgb(9, 9, 9);  
 }
 /*Logo - Search - BTN Create*/
 .searchSector{
@@ -108,13 +109,15 @@
     background-color: rgb(56, 51, 51);
 }
 .btnReset{
-    background-color: transparent;
-
-    height: 25px;
     color: white;
-    border: 1px solid black;
-    transition: background-color .5s;
+    background: #1d1b1b;
+    width: 15%;
+    border: 0px;
+    border-bottom: 2px solid rgb(122, 121, 121);
+    outline: 0px;
+    transition: border-bottom .7s,background-color 1s;
 }
 .btnReset:hover{
- background-color: gray;   
+    background: rgb(74,73,73);
+background: linear-gradient(180deg, #1d1b1b 0%, rgb(0, 0, 0) 100%);
 }

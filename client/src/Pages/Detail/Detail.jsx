@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useEffect } from "react";
 import style from "./Detail.module.css";
 import { NavLink } from "react-router-dom";
+import Loading from "../../Components/Loading/Loading";
 
 export default function Deatil() {
   const { id } = useParams();
@@ -49,7 +50,7 @@ export default function Deatil() {
       <NavLink to="/Home">
         <button className={style.buton}><i class='bx bx-left-arrow-alt'></i></button>
       </NavLink>
-      <div className={style.detailPage}>
+      {!recipe.id?<Loading/>:<div className={style.detailPage}>
         <div className={style.block1}>
 
           <div className={style.contName}>
@@ -82,7 +83,7 @@ export default function Deatil() {
             <h4 className={style.steSum}>{recipe.stepByStep}</h4>
           </div>
         </div>
-      </div>
+      </div>}
 
     </div>
   );

@@ -1,5 +1,5 @@
 import React from 'react';
-import './loading.css';
+import style from "./Loading.module.css"
 const Loading = () => {
   return (
     <div>
@@ -7,15 +7,15 @@ const Loading = () => {
         Loading
         <span></span>
       </div> */}
-      <div className="container">
-        <div className="loader">
-          <div className="loader--dot"></div>
-          <div className="loader--dot"></div>
-          <div className="loader--dot"></div>
-          <div className="loader--dot"></div>
-          <div className="loader--dot"></div>
-          <div className="loader--dot"></div>
-          <div className="loader--text"></div>
+      <div className={style.container}>
+        <div className={style.loader}>
+          <div className={style.loaderdot}></div>
+          <div className={style.loaderdot}></div>
+          <div className={style.loaderdot}></div>
+          <div className={style.loaderdot}></div>
+          <div className={style.loaderdot}></div>
+          <div className={style.loaderdot}></div>
+          <div className={style.loaderText}></div>
         </div>
       </div>
     </div>

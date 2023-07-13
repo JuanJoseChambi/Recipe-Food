@@ -6,7 +6,7 @@ import Error from "./Pages/Error/Error";
 import Detail from "./Pages/Detail/Detail";
 import axios from "axios";
 import { Route, Routes } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useSelector, useDispatch,  } from "react-redux"
 import { setRecipes } from "./Redux/Reducers/Recipes/recipeSlice";
 
@@ -55,7 +55,7 @@ export default function App() {
       });
       dispatch(setRecipes(info))
     }else{
-     alert("La receta no existe")
+      alert("La receta no existe")
     }
   }
 
@@ -71,7 +71,6 @@ export default function App() {
       }else{
         alert("Datos Incorectos....")
       }
- 
   };
 
   //---------------------------------------------------------------------------
@@ -82,7 +81,7 @@ export default function App() {
       <Routes>
         <Route path="/" element={<LandingPage />} />
         <Route path="/Home" element={<Home recipes={recipes} searchRecipe={searchRecipe}/>} />
-        <Route path="/Create" element={<CreateRecipe createRecipe={createRecipe}/>} />
+        <Route path="/Create" element={<CreateRecipe createRecipe={createRecipe} recipes={recipes}/>} />
         <Route path="/Detail/:id" element={<Detail />} />
         <Route path="/*" element={<Error />} />
       </Routes>

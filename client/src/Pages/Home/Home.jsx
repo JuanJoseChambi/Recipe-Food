@@ -4,9 +4,9 @@ import Nav from "../Nav/Nav";
 import Pagination from "../../Components/Pagination/Pagination";
 import { useSelector } from "react-redux"
 import Loading from "../../Components/Loading/Loading"
+import Error from "../Error/Error";
 
 export default function Home({recipes, searchRecipe}) {
-
 
   //Paginacion 2----------------------------------------------------------------
   
@@ -33,7 +33,7 @@ export default function Home({recipes, searchRecipe}) {
       <div className={style.home}>
         <Pagination totalRecipes={totalRecipes} recipesForPage={recipesForPage} page={page}/>
         <div className={style.block}>
-         {recipesinPage.length === 0?<Loading/>:<Cards recipesinPage={recipesinPage} className={style.cards}/> }
+         {recipesinPage.length === 0? (<Loading/>) : recipesinPage.length === null ? (<Error/>) : <Cards recipesinPage={recipesinPage} className={style.cards}/>}
         </div>
       </div>
     </div>
