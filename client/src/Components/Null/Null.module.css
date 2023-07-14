@@ -1,0 +1,34 @@
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 60vh;
+    font-family: 'Bacasime Antique', serif;
+}
+.text::after{
+    content: "No Favorites";
+    font-weight: bold;
+    animation-name: loading-text;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    font-family: 'Bacasime Antique', serif;
+}
+@keyframes loading-text {
+    0% {
+      content: 'No Favorites';
+    }
+    15%{
+        content: 'No Favorites.';
+    }
+    25% {
+      content: 'No Favorites..';
+    }
+    50% {
+      content: 'No Favorites....';
+    }
+    75% {
+      content: 'No Favorites.....';
+    }
+  }
+  

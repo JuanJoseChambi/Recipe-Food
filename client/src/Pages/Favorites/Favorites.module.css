@@ -1,0 +1,59 @@
+.containerFav{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: auto;
+    background-color: transparent;
+}
+.buton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 45px;
+    height: 5.5vh;
+    position: absolute;
+    z-index: 100;
+    font-size: 20px;
+    left: 0px;
+    top: 5px;
+    color: white;
+    background-color: #1d1b1b;
+    border: 1px solid rgb(127, 127, 127);
+    border-left: 0px;
+    border-radius: 0px 20px 20px 0px;
+    cursor: pointer;
+    box-shadow:0px 0px 15px 3px rgb(0, 0, 0);
+  }
+  .blockH1{
+    position: absolute;
+    font-family: 'Bacasime Antique', serif;
+    top: 25px;
+    margin: 0px;
+    padding: 5px 10px;
+    background-color: gray;
+    border-radius: 25px;
+    border: 1px solid black;
+    box-shadow:0px 0px 15px 3px rgb(0, 0, 0);
+    user-select: none;
+}
+  .containerCardsFavs{
+    background-color: rgb(67, 62, 62);
+    width: 90%;
+    height: auto;
+    box-shadow:0px 0px 20px 10px rgb(15, 15, 15);
+    margin-top: 50px;
+    border-radius: 20px;
+    border: 2px solid black;
+    margin-bottom: 50px;
+  }
+  .blockCard{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    flex-direction: row;
+    align-items: center;
+    /* background-color: red; */
+    margin-top: 60px;
+    margin-bottom: 40px;
+  }

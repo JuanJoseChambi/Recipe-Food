@@ -1,15 +1,75 @@
 .nav{
     display: flex;
     align-items: center;
-    flex-direction: column;
-    background-color: #1d1b1b;
+    flex-direction: row;
+    justify-content: space-around;
+    background-color:#1d1b1b;
     width: 100%;
     height: 105px;
     position: fixed;
     z-index: 9999;
-    border-bottom: 2px solid rgb(33, 32, 32);  
+    /* border-bottom: 2px solid rgb(33, 32, 32);   */
     box-shadow: 0px 0px 20px 10px rgb(9, 9, 9);  
 }
+.block1{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    background-color: #1d1b1b;
+    width: 10%;
+    min-height: 50px;
+    text-align: center;
+    font-family: 'Bacasime Antique', serif;
+    font-size: 12px;
+    padding: 10px 0px;
+    box-shadow: 0px 0px 20px 15px rgb(9, 9, 9);
+}
+.h1User{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: 0px;
+    min-height: 5.3vh;
+}
+.block2{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-color: #1d1b1b;
+    width: 80%;
+    height: 105px;
+    position: relative;
+    border-bottom: 2px solid rgb(33, 32, 32);  
+    box-shadow: 0px 0px 20px 10px rgb(9, 9, 9);  
+    border-radius: 10px;
+}
+.block3 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    background-color: #1d1b1b;
+    width: 10%;
+    min-height: 11vh;
+    text-align: center;
+    font-family: 'Bacasime Antique', serif;
+    font-size: 12px;
+    padding: 10px 0px;
+    box-shadow: 0px 0px 20px 15px rgb(9, 9, 9);
+}
+.btnFav{
+    background-color: transparent;
+    color: white;
+    border: 0px;
+    font-family: 'Bacasime Antique', serif;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+
 /*Logo - Search - BTN Create*/
 .searchSector{
     display: flex;
@@ -17,7 +77,7 @@
     align-items: center;
     justify-content: space-around;
     margin-top: 10px;
-    width: 70%;
+    width: 90%;
     height: 50px;
     /* background-color: rebeccapurple; */
 }
@@ -84,8 +144,8 @@
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    margin-top: 5px;
-    width: 50%;
+    margin-top: 6px;
+    width: 75%;
     height: 25px;
     /* background-color:purple;  */
     

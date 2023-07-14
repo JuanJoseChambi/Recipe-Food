@@ -33,7 +33,8 @@ export default function Home({recipes, searchRecipe}) {
       <div className={style.home}>
         <Pagination totalRecipes={totalRecipes} recipesForPage={recipesForPage} page={page}/>
         <div className={style.block}>
-         {recipesinPage.length === 0? (<Loading/>) : recipesinPage.length === null ? (<Error/>) : <Cards recipesinPage={recipesinPage} className={style.cards}/>}
+         {recipesinPage.length === 0? (<Loading/>) : recipesinPage.length === null ? (<Error/>) : 
+         <Cards recipesinPage={recipesinPage} className={style.cards}/>}
         </div>
       </div>
     </div>

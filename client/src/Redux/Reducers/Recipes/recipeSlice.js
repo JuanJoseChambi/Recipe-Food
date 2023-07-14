@@ -4,7 +4,7 @@ const initialState = {
     recipes: [],
     filtered: [],
     page: 1,
-    // favoritos:[]
+    favorites:[]
 };
 /*-------------------------------------------------------------------------------------------|
 | En filter recipe y origin recipe no se puede usar desde el state.filtered por que          |
@@ -79,12 +79,16 @@ export const recipeSlice = createSlice ({
         //------------------------------------------------------------------------------------
         //Extra: Favoritos--------------------------------------------------------------------
 
-        // addFav: (state, action) => {
-        //     state.favoritos = action.payload;
-        // }
+        addFav: (state, action) => {
+            state.favorites = [...state.favorites, action.payload];
+        },
+        removeFav: ( state, action) => {
+            const id = action.payload;
+            state.favorites = state.favorites.filter(ele => ele.id !== id); //hacer el filter y borrarlo
+        }
     }
 })
 
-export const {setRecipes, filterRecipe, originRecipe, orderRecipes, healthyFoodLevel, resteAll, numPage, nextPage, prevPage, refreshState } = recipeSlice.actions;
+export const {setRecipes, filterRecipe, originRecipe, orderRecipes, healthyFoodLevel, resteAll, numPage, nextPage, prevPage, addFav, removeFav } = recipeSlice.actions;
 
 export default recipeSlice.reducer;

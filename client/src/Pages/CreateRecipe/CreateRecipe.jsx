@@ -3,10 +3,9 @@ import { useEffect, useState } from "react";
 import style from "./CreateRecipe.module.css";
 import validation from "./validation";
 import axios from "axios";
-import { refreshState } from "../../Redux/Reducers/Recipes/recipeSlice";
 import { useDispatch } from "react-redux";
 
-export default function CreateRecipe({ createRecipe}) {
+export default function CreateRecipe({ createRecipe, allInfo}) {
   const dispatch = useDispatch()
   const [dietsapi, setDietsapi] = useState([]);
 
@@ -63,10 +62,9 @@ export default function CreateRecipe({ createRecipe}) {
 
   function handleSelectChange(event) {
     const selectedOptions = Array.from(event.target.selectedOptions, option => option.value);
-    const uniqueOptions = Array.from(new Set([...recipeNew.diets, ...selectedOptions]));
-    setRecipeNew(({
+    setRecipeNew(recipeNew => ({
       ...recipeNew,
-      diets: uniqueOptions,
+      diets: Array.from(new Set([...recipeNew.diets, ...selectedOptions])),
     }));
   }
 
@@ -81,7 +79,7 @@ export default function CreateRecipe({ createRecipe}) {
       healthScore: "",
     })
     createRecipe(recipeNew);
-    dispatch(refreshState())
+    allInfo()
   }
 
   return (

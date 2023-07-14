@@ -9,6 +9,7 @@ import { Route, Routes } from "react-router-dom";
 import { useEffect } from "react";
 import { useSelector, useDispatch,  } from "react-redux"
 import { setRecipes } from "./Redux/Reducers/Recipes/recipeSlice";
+import Favorites from "./Pages/Favorites/Favorites";
 
 
 export default function App() {
@@ -16,26 +17,30 @@ export default function App() {
   const recipes   = useSelector(state => state.recipes.filtered);
 
   // Renderizar Recetas-------------------------------------------------------
+
   useEffect(() => {
-    const allInfo = async () => {
-      const { data } = await axios.get("http://localhost:3001/recipes");
-      if (data) {
-        const info = data.map((ele) => {
-          return {
-            id: ele.id,
-            name: ele.name,
-            image: ele.image,
-            diets: ele.diets.map((ele) => ele.name),
-            // diets: ele.diets.map((ele) => <li key={ele.name}>{ele.name}</li>),
-            createInDB: ele.createInDB,
-            healthScore: ele.healthScore
-          };
-        });
-        dispatch(setRecipes(info))
-      }
-    };
     allInfo();
-  }, [dispatch]);
+  }, []);
+
+  async function allInfo () {
+    const { data } = await axios.get("http://localhost:3001/recipes");
+    if (data) {
+      const info = data.map((ele) => {
+        return {
+          id: ele.id,
+          name: ele.name,
+          image: ele.image,
+          diets: ele.diets.map((ele) => ele.name),
+          // diets: ele.diets.map((ele) => <li key={ele.name}>{ele.name}</li>),
+          createInDB: ele.createInDB,
+          healthScore: ele.healthScore
+        };
+      });
+      dispatch(setRecipes(info))
+    }
+  };
+
+
   //---------------------------------------------------------------------------
 
   //Buscar por Name------------------------------------------------------------
@@ -81,10 +86,35 @@ export default function App() {
       <Routes>
         <Route path="/" element={<LandingPage />} />
         <Route path="/Home" element={<Home recipes={recipes} searchRecipe={searchRecipe}/>} />
-        <Route path="/Create" element={<CreateRecipe createRecipe={createRecipe} recipes={recipes}/>} />
+        <Route path="/Create" element={<CreateRecipe createRecipe={createRecipe} recipes={recipes} allInfo={allInfo}/>} />
         <Route path="/Detail/:id" element={<Detail />} />
+        <Route path="/Favorites" element={<Favorites/>}/>
         <Route path="/*" element={<Error />} />
       </Routes>
     </div>
   );
 }
+
+
+  // Back Up-----------------------------------------------------------------------------
+  // useEffect(() => {
+  //   async function allInfo () {
+  //     const { data } = await axios.get("http://localhost:3001/recipes");
+  //     if (data) {
+  //       const info = data.map((ele) => {
+  //         return {
+  //           id: ele.id,
+  //           name: ele.name,
+  //           image: ele.image,
+  //           diets: ele.diets.map((ele) => ele.name),
+  //           // diets: ele.diets.map((ele) => <li key={ele.name}>{ele.name}</li>),
+  //           createInDB: ele.createInDB,
+  //           healthScore: ele.healthScore
+  //         };
+  //       });
+  //       dispatch(setRecipes(info))
+  //     }
+  //   };
+  //   allInfo();
+  // }, [dispatch]);
+  //---------------------------------------------------------------------------------------

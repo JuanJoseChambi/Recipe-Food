@@ -14,7 +14,7 @@ export default function LandingPage() {
   };
 
   function handlerSend() {
-    dispatch(setUser(name))
+    dispatch(setUser(name));
     setName("")
   }
 
