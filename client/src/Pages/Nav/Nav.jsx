@@ -82,16 +82,16 @@ export default function Nav ({searchRecipe}) {
                 <div className={style.blockSelectors}>
                     <select onChange={handlerFilter} aria-multiselectable className={style.selector} /* Filtrar */> 
                         <option className={style.options} value="allDiets">All Diets</option>
-                        <option className={style.options} value="gluten free">Gluten Free</option>
-                        <option className={style.options} value="dairy free">Dairy Free</option>
-                        <option className={style.options} value="lacto ovo vegetarian">Lacto Ovo Vegetarian</option>
-                        <option className={style.options} value="vegan">Vegan</option>
-                        <option className={style.options} value="paleolithic">Paleolithic</option>
-                        <option className={style.options} value="primal">Primal</option>
-                        <option className={style.options} value="whole 30">Whole 30</option>
-                        <option className={style.options} value="pescatarian">Pescatarian</option>
-                        <option className={style.options} value="ketogenic">Ketogenic</option>
-                        <option className={style.options} value="fodmap friendly">Fodmap Friendly</option>
+                        <option className={style.options} value=" gluten free ">Gluten Free</option>
+                        <option className={style.options} value=" dairy free ">Dairy Free</option>
+                        <option className={style.options} value=" lacto ovo vegetarian ">Lacto Ovo Vegetarian</option>
+                        <option className={style.options} value=" vegan ">Vegan</option>
+                        <option className={style.options} value=" paleolithic ">Paleolithic</option>
+                        <option className={style.options} value=" primal ">Primal</option>
+                        <option className={style.options} value=" whole 30 ">Whole 30</option>
+                        <option className={style.options} value=" pescatarian ">Pescatarian</option>
+                        <option className={style.options} value=" ketogenic ">Ketogenic</option>
+                        <option className={style.options} value=" fodmap friendly ">Fodmap Friendly</option>
                     </select>
                     <select onChange={handlerCreated} className={style.selector}>
                         <option className={style.options} value="allRecipes">All Origin</option>

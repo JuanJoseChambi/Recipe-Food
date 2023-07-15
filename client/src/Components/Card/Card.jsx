@@ -33,19 +33,24 @@ export default function Card({ recipe }) {//
   }
 
   return (
-    <div className={style.card}>
-        <div className={style.img}>
+    <div className={style.container}>
+      <div className={style.card}>
+        <div className={style.contentImg}>
           {isFav?
           <h2 onClick={handlerFavorite} className={style.guardar}><i className='bx bxs-bookmark-star'></i></h2>:
           <h2 onClick={handlerFavorite} className={style.guardar}><i className='bx bx-bookmark' ></i></h2>}
+      <NavLink to={`/Detail/${recipe.id}`}>
+          <h1 className={style.detail}>Detail</h1>
+      </NavLink>
           <img src={recipe.image} alt={recipe.name} />
         </div>
-      <NavLink to={`/Detail/${recipe.id}`} className={style.nav}>
-        <h2 className={style.name}>{recipe.name}</h2>
-        <div className={style.diets}>
-          <p>{recipe.diets}</p>
+        <div className={style.contentText}>
+          <h2 className={style.name}>{recipe.name}</h2>
+          <div className={style.diets}>
+            <p>{recipe.diets}</p>
+          </div>
         </div>
-      </NavLink>
+    </div>
     </div>
   );
 }

@@ -30,7 +30,7 @@ export default function App() {
           id: ele.id,
           name: ele.name,
           image: ele.image,
-          diets: ele.diets.map((ele) => ele.name),
+          diets: ele.diets.map((ele) => ` ${ele.name} `),
           // diets: ele.diets.map((ele) => <li key={ele.name}>{ele.name}</li>),
           createInDB: ele.createInDB,
           healthScore: ele.healthScore
@@ -52,7 +52,7 @@ export default function App() {
           id: ele.id,
           name: ele.name,
           image: ele.image,
-          diets: ele.diets.map((ele) => ele.name),
+          diets: ele.diets.map((ele) => ` ${ele.name} `),
           // diets: ele.diets.map((ele) => <li key={ele.name}>{ele.name}</li>),
           createInDB: ele.createInDB,
           healthScore: ele.healthScore
