@@ -5,7 +5,7 @@ import { NavLink } from "react-router-dom";
 import { addFav, removeFav } from "../../Redux/Reducers/Recipes/recipeSlice";
 import { useDispatch, useSelector } from "react-redux";
 
-export default function Card({ recipe }) {//
+export default function Card({ recipe, deleteRecipe, allInfo }) {//
   const dispatch = useDispatch();
   const [isFav, setIsFav] = useState(false)
 
@@ -18,7 +18,8 @@ export default function Card({ recipe }) {//
           setIsFav(true);
        }
     });
- }, [favorites]);
+    //eslint-disable-next-line react-hooks/exhaustive-deps
+ }, []);
 //si ya era fav osea true se lo setea a false ya que se lo volvio a selecionar y hacer click sobre algo que ya era fav es quitarla de fav.
   function handlerFavorite () {
     if (isFav) {
@@ -32,6 +33,11 @@ export default function Card({ recipe }) {//
     }
   }
 
+  function deleted (){
+    deleteRecipe(recipe.id)
+    allInfo()
+  }
+
   return (
     <div className={style.container}>
       <div className={style.card}>
@@ -39,6 +45,7 @@ export default function Card({ recipe }) {//
           {isFav?
           <h2 onClick={handlerFavorite} className={style.guardar}><i className='bx bxs-bookmark-star'></i></h2>:
           <h2 onClick={handlerFavorite} className={style.guardar}><i className='bx bx-bookmark' ></i></h2>}
+          {recipe.createInDB === true?<button onClick={deleted} className={style.delete}><i class='bx bx-x' ></i></button>: null}
       <NavLink to={`/Detail/${recipe.id}`}>
           <h1 className={style.detail}>Detail</h1>
       </NavLink>

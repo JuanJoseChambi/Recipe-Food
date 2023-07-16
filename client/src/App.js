@@ -80,12 +80,23 @@ export default function App() {
       dispatch(setDiets(obj))
     }
   //---------------------------------------------------------------------------
+  //Delete---------------------------------------------------------------------
+    async function deleteRecipe (id) {
+      const deleted = await axios.delete(`http://localhost:3001/recipes/${id}`)
+      if (deleted) {
+        alert("La receta fue Borrada")
+      }else{
+        alert("La receta no fue Encontrada")
+      }
+    }
+    //---------------------------------------------------------------------------
+
 
   return (
     <div className={style.App}>
       <Routes>
         <Route path="/" element={<LandingPage />} />
-        <Route path="/Home" element={<Home recipes={recipes} searchRecipe={searchRecipe}/>} />
+        <Route path="/Home" element={<Home recipes={recipes} searchRecipe={searchRecipe} deleteRecipe={deleteRecipe} allInfo={allInfo}/>} />
         <Route path="/Create" element={<CreateRecipe createRecipe={createRecipe} recipes={recipes} allInfo={allInfo}/>} />
         <Route path="/Detail/:id" element={<Detail />} />
         <Route path="/Favorites" element={<Favorites/>}/>

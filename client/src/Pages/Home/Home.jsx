@@ -7,7 +7,7 @@ import Loading from "../../Components/Loading/Loading"
 import Error from "../Error/Error";
 import Footer from "../../Components/Footer/Footer";
 
-export default function Home({recipes, searchRecipe}) {
+export default function Home({recipes, searchRecipe, deleteRecipe, allInfo}) {
 
   //Paginacion 2----------------------------------------------------------------
   
@@ -31,7 +31,7 @@ export default function Home({recipes, searchRecipe}) {
         <Pagination totalRecipes={totalRecipes} recipesForPage={recipesForPage} page={page}/>
         <div className={style.block}>
          {recipesinPage.length === 0? (<Loading/>) : recipesinPage.length === null ? (<Error/>) : 
-         <Cards recipesinPage={recipesinPage} className={style.cards}/>}
+         <Cards recipesinPage={recipesinPage} deleteRecipe={deleteRecipe} allInfo={allInfo} className={style.cards}/>}
         </div>
       </div>
       <Footer/>

@@ -71,6 +71,24 @@ router.post("/" , async (req, res) => {
 });
 
 // --------------------------------------------------------------
+// Eliminar Receta--------------------------------------------------
+
+router.delete("/:id", async (req, res) => {
+  const {id} = req.params;
+
+  try {
+    const recipeDel = await Recipe.findOne({where:{id:id}});
+    if (recipeDel) {
+      recipeDel.destroy();
+      res.status(200).json({message:"La receta fue Eliminada"})
+    }else{
+      res.status(404).json({message:"La receta no se Encontro"})
+    }
+  } catch (error) {
+    res.status(500).json({error:error.message})
+  }
+})
+// --------------------------------------------------------------
 
 module.exports = router;
 
