@@ -2,9 +2,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
     width: 100%;
     height: auto;
-    background-color: transparent;
+    /* background-color: red; */
     position: relative;
     z-index: 100;
 }
@@ -42,7 +43,9 @@
     z-index: 150;
 }
   .containerCardsFavs{
-    background-color: rgb(67, 62, 62);
+    background: rgb(67,62,62);
+background: linear-gradient(180deg, rgba(67,62,62,1) 0%, rgba(19,18,18,0.5430344012605042) 92%);
+    /* background-color: #433e3e; */
     width: 90%;
     min-height: 83.7vh;
     box-shadow:0px 0px 20px 10px rgb(15, 15, 15);
@@ -68,11 +71,4 @@
     position: absolute;
     bottom: 0px;
     z-index: 1;
-  }
-  .svgTop{
-    margin: 0px;
-    width: 100%;
-    position: absolute;
-    top: 0px;
-    transform: rotateX(180deg);
   }

@@ -1,7 +1,6 @@
-// import { useSelector } from "react-redux";
 import { useState, useEffect } from "react";
 import style from "./Card.module.css";
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import { addFav, removeFav } from "../../Redux/Reducers/Recipes/recipeSlice";
 import { useDispatch, useSelector } from "react-redux";
 
@@ -37,7 +36,9 @@ export default function Card({ recipe, deleteRecipe, allInfo }) {//
     deleteRecipe(recipe.id)
     allInfo()
   }
+  const {pathname} = useLocation();
 
+  const fav = pathname === "/Favorites";
   return (
     <div className={style.container}>
       <div className={style.card}>
@@ -45,7 +46,7 @@ export default function Card({ recipe, deleteRecipe, allInfo }) {//
           {isFav?
           <h2 onClick={handlerFavorite} className={style.guardar}><i className='bx bxs-bookmark-star'></i></h2>:
           <h2 onClick={handlerFavorite} className={style.guardar}><i className='bx bx-bookmark' ></i></h2>}
-          {recipe.createInDB === true?<button onClick={deleted} className={style.delete}><i class='bx bx-x' ></i></button>: null}
+          {fav?null:recipe.createInDB === true?<button onClick={deleted} className={style.delete}><i class='bx bx-x' ></i></button>: null}
       <NavLink to={`/Detail/${recipe.id}`}>
           <h1 className={style.detail}>Detail</h1>
       </NavLink>

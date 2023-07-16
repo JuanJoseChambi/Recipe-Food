@@ -30,8 +30,7 @@ export default function App() {
           id: ele.id,
           name: ele.name,
           image: ele.image,
-          diets: ele.diets.map((ele) => ` ${ele.name} `), //pasar solo las diets al estado y en cards renderizarlos por separado.
-          // diets: ele.diets.map((ele) => <li key={ele.name}>{ele.name}</li>),
+          diets: ele.diets.map((ele) => ` ${ele.name} `),
           createInDB: ele.createInDB,
           healthScore: ele.healthScore
         };
@@ -99,7 +98,7 @@ export default function App() {
         <Route path="/Home" element={<Home recipes={recipes} searchRecipe={searchRecipe} deleteRecipe={deleteRecipe} allInfo={allInfo}/>} />
         <Route path="/Create" element={<CreateRecipe createRecipe={createRecipe} recipes={recipes} allInfo={allInfo}/>} />
         <Route path="/Detail/:id" element={<Detail />} />
-        <Route path="/Favorites" element={<Favorites/>}/>
+        <Route path="/Favorites" element={<Favorites deleteRecipe={deleteRecipe} allInfo={allInfo}/>}/>
         <Route path="/*" element={<Error />} />
       </Routes>
     </div>

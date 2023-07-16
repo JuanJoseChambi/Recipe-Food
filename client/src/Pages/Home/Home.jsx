@@ -27,8 +27,8 @@ export default function Home({recipes, searchRecipe, deleteRecipe, allInfo}) {
       <div className={style.nav}>
         <Nav className={style.nav} searchRecipe={searchRecipe}/>
       </div>
-      <div className={style.home}>
-        <Pagination totalRecipes={totalRecipes} recipesForPage={recipesForPage} page={page}/>
+        <div className={style.home}>
+          <Pagination totalRecipes={totalRecipes} recipesForPage={recipesForPage} page={page}/>
         <div className={style.block}>
          {recipesinPage.length === 0? (<Loading/>) : recipesinPage.length === null ? (<Error/>) : 
          <Cards recipesinPage={recipesinPage} deleteRecipe={deleteRecipe} allInfo={allInfo} className={style.cards}/>}

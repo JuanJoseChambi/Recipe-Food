@@ -7,15 +7,6 @@ import { useSelector } from "react-redux";
 
 export default function CreateRecipe({ createRecipe, allInfo}) {
   const diets = useSelector(state => state.recipes.diets)
-
-  // useEffect(() => {
-  //   const dietasApi = async () => {
-  //     const {data} = await axios.get("http://localhost:3001/diets");
-  //     const obj = data.map(ele => ele);
-  //     setDietsapi(obj)
-  //   }
-  //   dietasApi();
-  // },[])
   const [recipeNew, setRecipeNew] = useState({
     name: "",
     image: "",
@@ -215,7 +206,7 @@ export default function CreateRecipe({ createRecipe, allInfo}) {
         <div className={style.dietsDiv}>Dietas: {infoDiets}</div>
         <p className={style.error}>{errors.diets}</p>
         <button type="submit" 
-        className={(recipeNew.name && recipeNew.image && recipeNew.stepByStep && recipeNew.summary && recipeNew.healthScore && recipeNew.diets.length !== 0 && !errors.image)?style.btn:style.btn_invalid}
+        className={(!errors.name && !errors.image && !errors.stepByStep && !errors.summary && !errors.healthScore && recipeNew.diets.length !== 0 )?style.btn:style.btn_invalid}
          onClick={handlerSubmit}> Crear Receta!</button>
       </form>
     </div>

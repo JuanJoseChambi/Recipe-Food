@@ -3,6 +3,8 @@
     flex-direction: row;
     justify-content: center;
     flex-wrap: wrap;
-    background-color: rgb(67, 62, 62);
+    /* background-color: rgb(67, 62, 62); */
+    background: rgb(67,62,62);
+    background: linear-gradient(180deg, rgba(67,62,62,1) 0%, rgba(19,18,18,0.5430344012605042) 92%);
     border-radius: 20px;
 }
