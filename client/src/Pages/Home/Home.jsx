@@ -5,6 +5,7 @@ import Pagination from "../../Components/Pagination/Pagination";
 import { useSelector } from "react-redux"
 import Loading from "../../Components/Loading/Loading"
 import Error from "../Error/Error";
+import Footer from "../../Components/Footer/Footer";
 
 export default function Home({recipes, searchRecipe}) {
 
@@ -21,12 +22,8 @@ export default function Home({recipes, searchRecipe}) {
 
   //--------------------------------------------------------------------------
 
-  const miEstilo = {
-    backgroundColor: "transparent"
-  };
-
   return (
-    <div style={miEstilo}> 
+    <div > 
       <div className={style.nav}>
         <Nav className={style.nav} searchRecipe={searchRecipe}/>
       </div>
@@ -37,6 +34,7 @@ export default function Home({recipes, searchRecipe}) {
          <Cards recipesinPage={recipesinPage} className={style.cards}/>}
         </div>
       </div>
+      <Footer/>
     </div>
   );
 }

@@ -4,10 +4,14 @@
     justify-content: center;
     align-items: center;
     width: 100%;
-    /* background-color: red; */
+    background-color: #272727;
 }
 .block{
     width: 95%;
-    margin: 25px 0px 25px 0px;
+    margin: 30px 0px 65px 0px;
     /* padding: 5px; */
+    /* background-color: red; */
+    border: 1px solid rgb(55, 54, 54);
+    border-radius: 20px;
+    box-shadow: 0px 0px 20px 13px rgb(30, 29, 29);
 }

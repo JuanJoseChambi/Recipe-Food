@@ -2,6 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
     recipes: [],
+    diets: [],
     filtered: [],
     page: 1,
     favorites:[]
@@ -65,7 +66,6 @@ export const recipeSlice = createSlice ({
         },
         //------------------------------------------------------------------------------------
         //Paginacion--------------------------------------------------------------------------
-        // 1 paso crear los estados de el numero de la pagina
         numPage: (state, action) => {
             const numPage = action.payload
             state.page = numPage
@@ -77,8 +77,12 @@ export const recipeSlice = createSlice ({
             state.page--
         },
         //------------------------------------------------------------------------------------
+        //Diets-------------------------------------------------------------------------------
+        setDiets: (state, action) => {
+            state.diets = action.payload;
+        },
+        //------------------------------------------------------------------------------------
         //Extra: Favoritos--------------------------------------------------------------------
-
         addFav: (state, action) => {
             state.favorites = [...state.favorites, action.payload];
         },
@@ -86,9 +90,10 @@ export const recipeSlice = createSlice ({
             const id = action.payload;
             state.favorites = state.favorites.filter(ele => ele.id !== id); //hacer el filter y borrarlo
         }
+        //------------------------------------------------------------------------------------
     }
 })
 
-export const {setRecipes, filterRecipe, originRecipe, orderRecipes, healthyFoodLevel, resteAll, numPage, nextPage, prevPage, addFav, removeFav } = recipeSlice.actions;
+export const {setRecipes, filterRecipe, originRecipe, orderRecipes, healthyFoodLevel, resteAll, numPage, nextPage, prevPage, addFav, removeFav, setDiets } = recipeSlice.actions;
 
 export default recipeSlice.reducer;

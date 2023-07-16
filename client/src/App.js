@@ -8,7 +8,7 @@ import axios from "axios";
 import { Route, Routes } from "react-router-dom";
 import { useEffect } from "react";
 import { useSelector, useDispatch,  } from "react-redux"
-import { setRecipes } from "./Redux/Reducers/Recipes/recipeSlice";
+import { setRecipes, setDiets } from "./Redux/Reducers/Recipes/recipeSlice";
 import Favorites from "./Pages/Favorites/Favorites";
 
 
@@ -17,11 +17,11 @@ export default function App() {
   const recipes   = useSelector(state => state.recipes.filtered);
 
   // Renderizar Recetas-------------------------------------------------------
-
   useEffect(() => {
     allInfo();
+    dietasApi();
+    //eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-
   async function allInfo () {
     const { data } = await axios.get("http://localhost:3001/recipes");
     if (data) {
@@ -30,7 +30,7 @@ export default function App() {
           id: ele.id,
           name: ele.name,
           image: ele.image,
-          diets: ele.diets.map((ele) => ` ${ele.name} `),
+          diets: ele.diets.map((ele) => ` ${ele.name} `), //pasar solo las diets al estado y en cards renderizarlos por separado.
           // diets: ele.diets.map((ele) => <li key={ele.name}>{ele.name}</li>),
           createInDB: ele.createInDB,
           healthScore: ele.healthScore
@@ -39,10 +39,7 @@ export default function App() {
       dispatch(setRecipes(info))
     }
   };
-
-
   //---------------------------------------------------------------------------
-
   //Buscar por Name------------------------------------------------------------
   async function searchRecipe(name) {
     const { data } = await axios.get(`http://localhost:3001/recipes?name=${name}`);
@@ -63,9 +60,7 @@ export default function App() {
       alert("La receta no existe")
     }
   }
-
   //---------------------------------------------------------------------------
-
   //Crear Receta --------------------------------------------------------------
 
   async function createRecipe(newRecipe) {
@@ -77,9 +72,14 @@ export default function App() {
         alert("Datos Incorectos....")
       }
   };
-
   //---------------------------------------------------------------------------
-
+  //Diets----------------------------------------------------------------------
+    async function dietasApi () {
+      const {data} = await axios.get("http://localhost:3001/diets");
+      const obj = data.map(ele => ele);
+      dispatch(setDiets(obj))
+    }
+  //---------------------------------------------------------------------------
 
   return (
     <div className={style.App}>
@@ -95,6 +95,55 @@ export default function App() {
   );
 }
 
+  // // Renderizar Recetas-------------------------------------------------------
+
+  // useEffect(() => {
+  //   allInfo();
+  // }, []);
+
+  // async function allInfo () {
+  //   const { data } = await axios.get("http://localhost:3001/recipes");
+  //   if (data) {
+  //     const info = data.map((ele) => {
+  //       return {
+  //         id: ele.id,
+  //         name: ele.name,
+  //         image: ele.image,
+  //         diets: ele.diets.map((ele) => ` ${ele.name} `), //pasar solo las diets al estado y en cards renderizarlos por separado.
+  //         // diets: ele.diets.map((ele) => <li key={ele.name}>{ele.name}</li>),
+  //         createInDB: ele.createInDB,
+  //         healthScore: ele.healthScore
+  //       };
+  //     });
+  //     dispatch(setRecipes(info))
+  //   }
+  // };
+
+
+  // //---------------------------------------------------------------------------
+
+  // //Buscar por Name------------------------------------------------------------
+  // async function searchRecipe(name) {
+  //   const { data } = await axios.get(`http://localhost:3001/recipes?name=${name}`);
+  //   if (data.length > 0) {
+  //     const info = data.map((ele) => {
+  //       return {
+  //         id: ele.id,
+  //         name: ele.name,
+  //         image: ele.image,
+  //         diets: ele.diets.map((ele) => ` ${ele.name} `),
+  //         // diets: ele.diets.map((ele) => <li key={ele.name}>{ele.name}</li>),
+  //         createInDB: ele.createInDB,
+  //         healthScore: ele.healthScore
+  //       };
+  //     });
+  //     dispatch(setRecipes(info))
+  //   }else{
+  //     alert("La receta no existe")
+  //   }
+  // }
+
+  // //---------------------------------------------------------------------------
 
   // Back Up-----------------------------------------------------------------------------
   // useEffect(() => {

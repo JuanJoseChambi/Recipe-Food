@@ -14,21 +14,28 @@
     margin-left: 15px;
     height: 95vh;
     width: 38%;
-    background-color: #222;
+    border: 1px solid rgb(41, 41, 41);
+    background-color: #1d1c1c;
+    /* background-color: #222; */
     color: white;
     border-radius: 10px;
+    box-shadow: 0px 0px 20px 5px rgba(192, 184, 184, 0.219);
+    position: relative;
+    z-index: 100;
   }
   
   .h1 {
     font-size: 65px;
     margin-bottom: 3px;
     font-family: 'Bacasime Antique', serif;
+    text-shadow: 0px 5px 5px rgba(214, 212, 212, 0.5);
     /* background-color: violet; */
   }
 .NameX{
     display: flex;
     flex-direction: row;
-    /* background-color: rgb(43, 43, 43); */
+    /* background-color: rgb(195, 49, 49); */
+    
 }
 .inputName{
     background-color: #2d2d2d;
@@ -38,6 +45,7 @@
     color: white;
     outline: none;
     border-radius: 10px 0px 0px 10px;
+    
 }
 .btn{
     display: flex;
@@ -57,6 +65,7 @@
     /* background-color: purple; */
     text-align: center;
     font-family: 'Bacasime Antique', serif;
+    /* text-shadow: 0px 0px 10px rgba(193, 189, 189, 0.5); */
 
 }  
   .button {
@@ -69,14 +78,14 @@
     cursor: pointer;
     text-decoration: none;
     border-bottom: 3px solid black;
-    border-top: 3px solid black;
     transition: border .5s;
     font-family: 'Bacasime Antique', serif;
-    transition: background-color .5s;
+    transition: background-color .5s, transform .5s;
   }
   
   .button:hover {
     background-color: rgb(59, 56, 56);
+    transform: scale(1.1);
   }
   .image1 img{
     width: 102%;

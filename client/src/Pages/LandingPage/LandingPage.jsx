@@ -26,7 +26,7 @@ export default function LandingPage() {
     <div style={misEstilos}>
       <div className={style.all}>
         <div className={style.landing}>
-        <h1 className={style.h1}>Landing Page</h1>
+        <h1 className={style.h1}>Food Recipes</h1>
         <div className={style.NameX}>
           <input type="text" value={name} placeholder="Name ( Optional )"  onChange={handleNameChange} className={style.inputName}/>
           <button className={style.btn} onClick={handlerSend}><i class='bx bxs-send' ></i></button>

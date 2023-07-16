@@ -1,23 +1,21 @@
 import { NavLink } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import style from "./CreateRecipe.module.css";
 import validation from "./validation";
-import axios from "axios";
-import { useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
+
 
 export default function CreateRecipe({ createRecipe, allInfo}) {
-  const dispatch = useDispatch()
-  const [dietsapi, setDietsapi] = useState([]);
+  const diets = useSelector(state => state.recipes.diets)
 
-  useEffect(() => {
-    const dietasApi = async () => {
-      const {data} = await axios.get("http://localhost:3001/diets");
-      const obj = data.map(ele => ele);
-      setDietsapi(obj)
-    }
-    dietasApi();
-  },[])
-
+  // useEffect(() => {
+  //   const dietasApi = async () => {
+  //     const {data} = await axios.get("http://localhost:3001/diets");
+  //     const obj = data.map(ele => ele);
+  //     setDietsapi(obj)
+  //   }
+  //   dietasApi();
+  // },[])
   const [recipeNew, setRecipeNew] = useState({
     name: "",
     image: "",
@@ -39,7 +37,7 @@ export default function CreateRecipe({ createRecipe, allInfo}) {
   let dietasview = [];
 
   for (let i = 0; i < recipeNew.diets.length; i++) {
-    const selectedDiet = dietsapi.find(diet => diet.id == recipeNew.diets[i]);
+    const selectedDiet = diets.find(diet => diet.id.toString() === recipeNew.diets[i]);
     if (selectedDiet) {
       dietasview.push(selectedDiet.name);
     }
@@ -88,7 +86,7 @@ export default function CreateRecipe({ createRecipe, allInfo}) {
         <button className={style.buton}><i className='bx bx-left-arrow-alt'></i></button>
       </NavLink>
       <div className={style.image}>
-        <img src="https://images.unsplash.com/photo-1530554764233-e79e16c91d08?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=387&q=80" alt="Image-from-burguer" />
+        <img src="https://images.unsplash.com/photo-1530554764233-e79e16c91d08?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=387&q=80" alt="Imagefromburguer" />
       </div>
       <form className={style.divForm}>
         <div className={style.block}>

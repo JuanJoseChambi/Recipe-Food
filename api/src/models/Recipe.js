@@ -26,9 +26,13 @@ module.exports = (sequelize) => {
       allowNull: false
     },
     stepByStep: { /*analizar receta */
-      type: DataTypes.TEXT,
-      allowNull: false
-    },
+    type: DataTypes.TEXT,
+    allowNull: false
+  },
+    // stepByStep: { /*analizar receta */
+    //   type: DataTypes.TEXT,
+    //   allowNull: false
+    // },
     createInDB: {
       type:DataTypes.BOOLEAN,
       defaultValue: true,

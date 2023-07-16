@@ -1,5 +1,5 @@
 
-const imageRegex = /\.(jpeg|jpg|gif|png|bmp|svg)$/i;
+
 
 const onlyNumber = /^[0-9]+$/; 
 
@@ -10,8 +10,6 @@ export default function validation (input) {
     if((input.name).length <= 1) errors.name = "Name is Required";
 
     if((input.name).length > 60) errors.name = "Name Large";
-
-    if(!imageRegex.test(input.image)) errors.image = "Required Url From Image";
     
     if((input.image).length <= 1) errors.image = "Image is Required";
 

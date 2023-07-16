@@ -23,27 +23,21 @@ export default function Deatil() {
             name,
             summary: summary.replace(/<[^>]+>/g, ''),
             healthScore,
-            stepByStep: stepByStep,
+            stepByStep: Array.isArray(stepByStep)?stepByStep.map(paso => <li key={paso.number}>Paso: {paso.number} - {paso.step}</li>):(
+              stepByStep.split('\n').map((step, index) => <li key={index}>{step}</li>)),
+              //lo que se hace en el codigo de step es que si es un string se lo pasa a un array y se lo spera en donde encuentre saltos de linea osea que  si da un enter, y luego mapea estos elementos del array y los mapea cada uno en un li para que tenga formato de lista
             image,
             diets: diets.map((ele) => <h4 className={style.dietas}>{ele.name}</h4>),
           };
-          // return {
-          //   id: ele.id,
-          //   name: ele.name,
-          //   summary: ele.summary,
-          //   healthScore: ele.healthScore,
-          //   stepByStep: ele.stepByStep,
-          //   image: ele.image,
-          //   diets: ele.diets,
-          // };
-
         setRecipe(allrecipe);
+        console.log(stepByStep);
       } else {
         window.alert("La receta no existe");
       }
     };
     recipe();
-  }, [id]);
+       //eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <div >
@@ -74,12 +68,12 @@ export default function Deatil() {
 
         <div className={style.block2}>
           <div className={style.containerAll}>
-            <h3 className={style.steSum}>Summary: </h3>
+            <h3 className={style.namesumStep}>Summary: </h3>
             <h4 className={style.steSum}>{recipe.summary}</h4>
           </div>
 
           <div className={style.containerAll}>
-            <h3 className={style.steSum}>Step: </h3>
+            <h3 className={style.namesumStep}>Step: </h3>
             <h4 className={style.steSum}>{recipe.stepByStep}</h4>
           </div>
         </div>

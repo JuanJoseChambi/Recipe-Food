@@ -13,11 +13,8 @@ const getApi = async () => {
           image: ele.image,
           summary: ele.summary,
           healthScore: ele.healthScore,
-          diets: ele.diets.map((d)=> {return{name:d}}),
-          stepByStep: ele.analyzedInstructions[0]?.steps.map(paso => {
-            return `Paso: ${paso.number} - ${paso.step}`
-            
-          }),
+          diets: ele.diets.map((diet)=> {return{name:diet}}),
+          stepByStep: ele.analyzedInstructions[0]?.steps,
         };
       });;
       const allDB = await Recipe.findAll({
