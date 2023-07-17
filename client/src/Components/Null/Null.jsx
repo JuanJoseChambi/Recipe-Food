@@ -1,5 +1,4 @@
 import style from "./Null.module.css"
-
 import svg from "../../Assets/carne3.svg"
 
 export default function Null () {
