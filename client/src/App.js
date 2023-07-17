@@ -61,7 +61,6 @@ export default function App() {
   }
   //---------------------------------------------------------------------------
   //Crear Receta --------------------------------------------------------------
-
   async function createRecipe(newRecipe) {
     const {name,image,summary,healthScore,stepByStep,diets} = newRecipe;
       if (name &&image && summary && healthScore && stepByStep && diets ) {
@@ -96,7 +95,7 @@ export default function App() {
       <Routes>
         <Route path="/" element={<LandingPage />} />
         <Route path="/Home" element={<Home recipes={recipes} searchRecipe={searchRecipe} deleteRecipe={deleteRecipe} allInfo={allInfo}/>} />
-        <Route path="/Create" element={<CreateRecipe createRecipe={createRecipe} recipes={recipes} allInfo={allInfo}/>} />
+        <Route path="/Create" element={<CreateRecipe createRecipe={createRecipe} allInfo={allInfo}/>} />
         <Route path="/Detail/:id" element={<Detail />} />
         <Route path="/Favorites" element={<Favorites deleteRecipe={deleteRecipe} allInfo={allInfo}/>}/>
         <Route path="/*" element={<Error />} />

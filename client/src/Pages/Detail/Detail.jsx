@@ -30,7 +30,6 @@ export default function Deatil() {
           diets: diets.map((ele) => (<h4 className={style.dietas}>{ele.name}</h4>)),
         };
         setRecipe(allrecipe);
-        console.log(stepByStep);
       } else {
         window.alert("La receta no existe");
       }
@@ -81,8 +80,7 @@ export default function Deatil() {
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#000000" fill-opacity="1" d="M0,256L48,256C96,256,192,256,288,218.7C384,181,480,107,576,112C672,117,768,203,864,218.7C960,235,1056,181,1152,176C1248,171,1344,213,1392,234.7L1440,256L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>
           </div>
         </div>
-      )}
-     
+      )} 
     </div>
   );
 }
