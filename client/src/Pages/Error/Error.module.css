@@ -1,6 +1,97 @@
 .error{
-    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background: rgb(24,23,23);
+    background: linear-gradient(180deg, rgba(24,23,23,1) 0%, rgba(31,29,29,1) 53%, rgba(25,24,24,1) 100%);
     color: white;
     width: 100%;
     height: 100vh;
+    margin: 0px;
+}
+.containerSvg{
+    /* background-color: red; */
+    margin: 10px 0px;
+}
+.h1Text{
+    /* background-color: red; */
+    margin: 0px auto;
+    width: auto;
+    /* font-family: 'Bacasime Antique', serif; */
+}
+.h1Text:after{
+    content: "404";
+    animation-name: textNotFound;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes textNotFound {
+    0% {
+        content: "404 N";
+    }
+    5%{
+        content: "404 No";
+    }
+    10%{
+        content: "404 Not";
+    }
+    15%{
+        content: "404 Not F";
+    }
+    20%{
+        content: "404 Not Fo";
+    }
+    25%{
+        content: "404 Not Fou";
+    }
+    30%{
+        content: "404 Not Foun";
+    }
+    35%{
+        content: "404 Not Found";
+    }
+    40%{
+        content: "404 Not Found";
+    }
+    45%{
+        content: "404 Not Foun";
+    }
+    50%{
+        content: "404 Not Fou";
+    }
+    55%{
+        content: "404 Not Fo";
+    }
+    60%{
+        content: "404 Not F";
+    }
+    65%{
+        content: "404 Not";
+    }
+    70%{
+        content: "404 No";
+    }
+    75%{
+        content: "404 N";
+    }
+    80%{
+        content: "404";
+    }
+    85%{
+        content: "40";
+    }
+    90%{
+        content: "4";
+    }
+    95%{
+        content: "40";
+    }
+    98%{
+        content: "404";
+    }
+    100%{
+        content: "404 N";
+    }
 }

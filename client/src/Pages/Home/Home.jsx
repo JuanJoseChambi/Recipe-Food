@@ -9,7 +9,7 @@ import Footer from "../../Components/Footer/Footer";
 
 export default function Home({recipes, searchRecipe, deleteRecipe, allInfo}) {
 
-  //Paginacion 2----------------------------------------------------------------
+  //Paginacionii----------------------------------------------------------------
   
   const page = useSelector(state => state.recipes.page);
 

@@ -17,20 +17,41 @@
     /* background-color: blue; */
   }
 
-  .loaderIcon{
+  /* .loaderIcon{
     display: flex;
     justify-content: center;
     align-items: center;
-    /* background-color: rebeccapurple; */
+    background-color: rebeccapurple;
     height: 200px;
     width: 50%;
     margin: 10px;
     font-size: 50px;
+  } */
+
+  
+  .myLoader{
+    border: 4px solid transparent; /* Color del borde del círculo */
+    border-top: 4px solid #000000; /* Color del borde del círculo en la parte superior (parte que se verá girando) */
+    border-right: 4px solid #000000;
+    border-left: 4px solid #000000;
+    border-radius: 50%;
+    width: 35px;
+    height: 40px;
+    animation: spin .8s linear infinite;
+    /* background-color: red; */
+  }
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
   }
 
   .loaderText {
-    position: relative;
     /* background-color: red; */
+    position: relative;
     width: 50px;
     margin: auto;
   }

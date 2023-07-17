@@ -175,9 +175,10 @@
     border: 0px;
     border-bottom: 2px solid rgb(122, 121, 121);
     outline: 0px;
-    transition: border-bottom .7s,background-color 1s;
+    transition: border-bottom .5s,background-color 1s;
 }
 .btnReset:hover{
+    border-bottom: 2px solid black;
     background: rgb(74,73,73);
-background: linear-gradient(180deg, #1d1b1b 0%, rgb(0, 0, 0) 100%);
+    background: linear-gradient(180deg, #1d1b1b 0%, rgb(0, 0, 0) 100%);
 }

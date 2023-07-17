@@ -17,15 +17,14 @@ export default function Deatil() {
       const wanted = await response.data;
       if (wanted.length > 0) {
         const infoRecipe = wanted[0];
-        const { id, name, summary, healthScore, stepByStep, image, diets } =
-          infoRecipe;
+        const { id, name, summary, healthScore, stepByStep, image, diets } = infoRecipe;
         const allrecipe = {
           id,
           name,
           summary: summary.replace(/<[^>]+>/g, ""),
           healthScore,
-          stepByStep: Array.isArray(stepByStep)? stepByStep.map((paso) => (<li key={paso.number}>Paso: {paso.number} - {paso.step}</li>))
-            : stepByStep.split("\n").map((step, index) => <li key={index}>{step}</li>),
+          stepByStep: stepByStep?Array.isArray(stepByStep)? stepByStep.map((paso) => (<li key={paso.number}>Step: {paso.number} - {paso.step}</li>))
+          : stepByStep.split("\n").map((step, index) => <li key={index}>{step}</li>):"No Step",
           //lo que se hace en el codigo de step es que si es un string se lo pasa a un array y se lo spera en donde encuentre saltos de linea osea que  si da un enter, y luego mapea estos elementos del array y los mapea cada uno en un li para que tenga formato de lista
           image,
           diets: diets.map((ele) => (<h4 className={style.dietas}>{ele.name}</h4>)),
