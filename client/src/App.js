@@ -16,12 +16,14 @@ export default function App() {
   const dispatch = useDispatch();
   const recipes   = useSelector(state => state.recipes.filtered);
 
-  // Renderizar Recetas-------------------------------------------------------
   useEffect(() => {
     allInfo();
     dietasApi();
     //eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  
+  // Renderizar Recetas-------------------------------------------------------
   async function allInfo () {
     const { data } = await axios.get("http://localhost:3001/recipes");
     if (data) {
@@ -39,6 +41,15 @@ export default function App() {
     }
   };
   //---------------------------------------------------------------------------
+  //Diets----------------------------------------------------------------------
+    async function dietasApi () {
+      const {data} = await axios.get("http://localhost:3001/diets");
+      const obj = data.map(ele => ele);
+      dispatch(setDiets(obj))
+    }
+  //---------------------------------------------------------------------------
+
+
   //Buscar por Name------------------------------------------------------------
   async function searchRecipe(name) {
     const { data } = await axios.get(`http://localhost:3001/recipes?name=${name}`);
@@ -71,13 +82,6 @@ export default function App() {
       }
   };
   //---------------------------------------------------------------------------
-  //Diets----------------------------------------------------------------------
-    async function dietasApi () {
-      const {data} = await axios.get("http://localhost:3001/diets");
-      const obj = data.map(ele => ele);
-      dispatch(setDiets(obj))
-    }
-  //---------------------------------------------------------------------------
   //Delete---------------------------------------------------------------------
     async function deleteRecipe (id) {
       const deleted = await axios.delete(`http://localhost:3001/recipes/${id}`)
@@ -103,76 +107,3 @@ export default function App() {
     </div>
   );
 }
-
-  // // Renderizar Recetas-------------------------------------------------------
-
-  // useEffect(() => {
-  //   allInfo();
-  // }, []);
-
-  // async function allInfo () {
-  //   const { data } = await axios.get("http://localhost:3001/recipes");
-  //   if (data) {
-  //     const info = data.map((ele) => {
-  //       return {
-  //         id: ele.id,
-  //         name: ele.name,
-  //         image: ele.image,
-  //         diets: ele.diets.map((ele) => ` ${ele.name} `), //pasar solo las diets al estado y en cards renderizarlos por separado.
-  //         // diets: ele.diets.map((ele) => <li key={ele.name}>{ele.name}</li>),
-  //         createInDB: ele.createInDB,
-  //         healthScore: ele.healthScore
-  //       };
-  //     });
-  //     dispatch(setRecipes(info))
-  //   }
-  // };
-
-
-  // //---------------------------------------------------------------------------
-
-  // //Buscar por Name------------------------------------------------------------
-  // async function searchRecipe(name) {
-  //   const { data } = await axios.get(`http://localhost:3001/recipes?name=${name}`);
-  //   if (data.length > 0) {
-  //     const info = data.map((ele) => {
-  //       return {
-  //         id: ele.id,
-  //         name: ele.name,
-  //         image: ele.image,
-  //         diets: ele.diets.map((ele) => ` ${ele.name} `),
-  //         // diets: ele.diets.map((ele) => <li key={ele.name}>{ele.name}</li>),
-  //         createInDB: ele.createInDB,
-  //         healthScore: ele.healthScore
-  //       };
-  //     });
-  //     dispatch(setRecipes(info))
-  //   }else{
-  //     alert("La receta no existe")
-  //   }
-  // }
-
-  // //---------------------------------------------------------------------------
-
-  // Back Up-----------------------------------------------------------------------------
-  // useEffect(() => {
-  //   async function allInfo () {
-  //     const { data } = await axios.get("http://localhost:3001/recipes");
-  //     if (data) {
-  //       const info = data.map((ele) => {
-  //         return {
-  //           id: ele.id,
-  //           name: ele.name,
-  //           image: ele.image,
-  //           diets: ele.diets.map((ele) => ele.name),
-  //           // diets: ele.diets.map((ele) => <li key={ele.name}>{ele.name}</li>),
-  //           createInDB: ele.createInDB,
-  //           healthScore: ele.healthScore
-  //         };
-  //       });
-  //       dispatch(setRecipes(info))
-  //     }
-  //   };
-  //   allInfo();
-  // }, [dispatch]);
-  //---------------------------------------------------------------------------------------
