@@ -4,13 +4,11 @@ import Nav from "../Nav/Nav";
 import Pagination from "../../Components/Pagination/Pagination";
 import { useSelector } from "react-redux"
 import Loading from "../../Components/Loading/Loading"
-import Error from "../Error/Error";
 import Footer from "../../Components/Footer/Footer";
 
 export default function Home({recipes, searchRecipe, deleteRecipe, allInfo}) {
 
   //Paginacionii----------------------------------------------------------------
-  
   const page = useSelector(state => state.recipes.page);
 
   let recipesinPage = [];
@@ -19,7 +17,6 @@ export default function Home({recipes, searchRecipe, deleteRecipe, allInfo}) {
   let indexEnd = recipesForPage * page;
   let indexStart = indexEnd - recipesForPage;
   recipesinPage = recipes.slice(indexStart, indexEnd);
-
   //--------------------------------------------------------------------------
 
   return (
