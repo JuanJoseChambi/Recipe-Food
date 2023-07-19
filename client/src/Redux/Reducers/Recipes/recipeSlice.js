@@ -7,11 +7,6 @@ const initialState = {
     page: 1,
     favorites:[]
 };
-/*-------------------------------------------------------------------------------------------|
-| En filter recipe y origin recipe no se puede usar desde el state.filtered por que          |
-| ocurriria lo que pasa con recipe, que es que se borran los anteriores datos.               |
-| sin embargo en order y healty si se puede ya que este no crea nuevos arrays y solo ordenan |
-|-------------------------------------------------------------------------------------------*/
 export const recipeSlice = createSlice ({
     name: 'recipes',
     initialState: initialState,
@@ -88,7 +83,7 @@ export const recipeSlice = createSlice ({
         },
         removeFav: ( state, action) => {
             const id = action.payload;
-            state.favorites = state.favorites.filter(ele => ele.id !== id); //hacer el filter y borrarlo
+            state.favorites = state.favorites.filter(ele => ele.id !== id);
         }
         //------------------------------------------------------------------------------------
     }

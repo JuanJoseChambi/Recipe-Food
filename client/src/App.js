@@ -17,8 +17,11 @@ export default function App() {
   const recipes   = useSelector(state => state.recipes.filtered);
 
   useEffect(() => {
-    allInfo()
-    dietasApi()
+    async function info () {
+      await allInfo()
+      await dietasApi()
+    }
+   info()
     //eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -26,7 +29,7 @@ export default function App() {
   async function allInfo () {
       const { data } = await axios.get("http://localhost:3001/recipes");
     if (data) {
-      const info = data.map((ele) => {
+      const info = await data.map((ele) => {
         return {
           id: ele.id,
           name: ele.name,
@@ -36,6 +39,7 @@ export default function App() {
           healthScore: ele.healthScore
         };
       });
+      console.log(info);
       dispatch(setRecipes(info))
     }
   };
@@ -43,7 +47,7 @@ export default function App() {
   //Diets----------------------------------------------------------------------
     async function dietasApi () {
       const {data} = await axios.get("http://localhost:3001/diets");
-      const obj = data.map(ele => ele);
+      const obj = await data.map(ele => ele);
       dispatch(setDiets(obj))
     }
   //---------------------------------------------------------------------------
@@ -51,7 +55,7 @@ export default function App() {
   async function searchRecipe(name) {
     const { data } = await axios.get(`http://localhost:3001/recipes?name=${name}`);
     if (data.length > 0) {
-      const info = data.map((ele) => {
+      const info = await data.map((ele) => {
         return {
           id: ele.id,
           name: ele.name,
