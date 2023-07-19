@@ -94,8 +94,6 @@ export default function App() {
       }
     }
     //---------------------------------------------------------------------------
-
-
   return (
     <div className={style.App}>
       <Routes>
@@ -103,8 +101,8 @@ export default function App() {
         <Route path="/Home" element={<Home recipes={recipes} searchRecipe={searchRecipe} deleteRecipe={deleteRecipe} allInfo={allInfo}/>} />
         <Route path="/Create" element={<CreateRecipe createRecipe={createRecipe} allInfo={allInfo}/>} />
         <Route path="/Detail/:id" element={<Detail />} />
-        <Route path="/Favorites" element={<Favorites deleteRecipe={deleteRecipe} allInfo={allInfo}/>}/>
-        <Route path="/*" element={<Error />} />
+        <Route path="/Favorites" element={<Favorites/>}/>
+        <Route path="/*" element={<Error />}/>
       </Routes>
     </div>
   );
