@@ -27,6 +27,5 @@ conn.sync({ force: false }).then(() => {/*true:borrar false:mantener */
   server.listen(3001, () => {
     console.log('listening at 3001'); // eslint-disable-line no-console
     getDiets()
-    getApi()
   });
 });

@@ -5,7 +5,6 @@ module.exports = (sequelize) => {
     id:{
       type: DataTypes.UUID,
       defaultValue: DataTypes.UUIDV4,
-      // autoIncrement: true,
       primaryKey: true,
       allowNull: false
     },
@@ -17,25 +16,21 @@ module.exports = (sequelize) => {
       type: DataTypes.TEXT,
       allowNull: false
     },
-    summary: { /*resumen (comentario) */
+    summary: {
       type: DataTypes.TEXT,
       allowNull: false
     },
-    healthScore:{ /*healt core: information */
+    healthScore:{
       type: DataTypes.INTEGER,
       allowNull: false
     },
-    stepByStep: { /*analizar receta */
+    stepByStep: {
     type: DataTypes.TEXT,
     allowNull: false
   },
-    // stepByStep: { /*analizar receta */
-    //   type: DataTypes.TEXT,
-    //   allowNull: false
-    // },
-    createInDB: {
-      type:DataTypes.BOOLEAN,
-      defaultValue: true,
-    }
+  createInDB: {
+    type:DataTypes.BOOLEAN,
+    defaultValue: true,
+  }
   },{timestamps:false});
 };

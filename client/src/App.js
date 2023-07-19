@@ -17,15 +17,14 @@ export default function App() {
   const recipes   = useSelector(state => state.recipes.filtered);
 
   useEffect(() => {
-    allInfo();
-    dietasApi();
+    allInfo()
+    dietasApi()
     //eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  
   // Renderizar Recetas-------------------------------------------------------
   async function allInfo () {
-    const { data } = await axios.get("http://localhost:3001/recipes");
+      const { data } = await axios.get("http://localhost:3001/recipes");
     if (data) {
       const info = data.map((ele) => {
         return {
@@ -43,13 +42,11 @@ export default function App() {
   //---------------------------------------------------------------------------
   //Diets----------------------------------------------------------------------
     async function dietasApi () {
-      const {data} = await axios.get("http://localhost:3001/diets");
+        const {data} = await axios.get("http://localhost:3001/diets");
       const obj = data.map(ele => ele);
       dispatch(setDiets(obj))
     }
   //---------------------------------------------------------------------------
-
-
   //Buscar por Name------------------------------------------------------------
   async function searchRecipe(name) {
     const { data } = await axios.get(`http://localhost:3001/recipes?name=${name}`);
@@ -75,8 +72,13 @@ export default function App() {
   async function createRecipe(newRecipe) {
     const {name,image,summary,healthScore,stepByStep,diets} = newRecipe;
       if (name &&image && summary && healthScore && stepByStep && diets ) {
+        const nameRepeat = recipes.some(recipe => recipe.name.toLowerCase() === name.toLowerCase())
+       if (nameRepeat) {
+        alert("Ya existe una receta con el mismo Nombre");
+       }else{
         await axios.post("http://localhost:3001/recipes/",newRecipe)
         alert("Receta Creada!!")
+       }
       }else{
         alert("Datos Incorectos....")
       }
