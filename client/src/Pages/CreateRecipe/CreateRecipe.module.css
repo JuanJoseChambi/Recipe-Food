@@ -98,7 +98,6 @@
 .inputs:focus {
   outline: 0px;
   border-bottom: 3px solid rgb(255, 255, 255);
-  transition: border-bottom 0.7s;
 }
 
 .areatext {
@@ -127,20 +126,36 @@
   align-items: center;
   flex-direction: column;
   /* background-color: purple; */
+  width: 50%;
+  margin: 20px 10px 20px 20px;
+  /* display: flex;
+  align-items: center;
+  flex-direction: column;
+  background-color: purple;
   width: 49%;
-  margin: 20px 60px 20px 10px;
+  margin: 20px 60px 20px 10px; */
 }
 
 .blockDerSelect{
   display: flex;
   align-items: center;
+  justify-content: center;
   flex-direction: column;
+  /* background-color: purple; */
+  width: 50%;
+  margin: 20px 20px 20px 10px;
+}
+.selectors{
   background-color: transparent;
-  color: white;
   border: 0px;
+  color: white;
   border-bottom: 3px solid rgb(135, 134, 134);
-  width: 25%;
-  margin: 20px 80px 20px 5px;
+  padding:  0px 2px;
+  transition: border-bottom 0.6s;
+  outline: none;
+}
+.selectors:focus{
+  border-bottom: 3px solid rgb(255, 255, 255);
 }
 .blockDerSelect:focus{
   outline: 0px;
@@ -150,6 +165,7 @@
 
 .options {
   background-color: gray;
+  outline: none;
 }
 .dietsDiv {
   /* font-family:"Bebas Neue", sans-serif; */
@@ -164,7 +180,7 @@
   width: 80%;
   border-radius: 30px;
   padding: 10px;
-  max-height: 20vh;
+  min-height: 5vh;
   margin-top: 5px;
   margin-bottom: 15px;
 }

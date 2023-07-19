@@ -1,5 +1,5 @@
 
-const onlyLetters = /^[A-Za-z\s]+$/;
+const onlyLetters = /^[A-Za-zÁÉÍÓÚáéíóúÑñ\s]+$/;
 const onlyUlrs = /^(https?|ftp):\/\/[^\s/$.?#].[^\s]*$|data:image\/(jpeg|png|gif|bmp|svg\+xml);base64,[A-Za-z0-9+/]+=*$/;
 
 export default function validation (input) {
@@ -25,6 +25,8 @@ export default function validation (input) {
     if(input.healthScore > 100) errors.healthScore = "Health Score Max";
     
     if((input.healthScore).length === 0) errors.healthScore = "Health Score is Required";
+
+    if(input.diets.length === 0) errors.diets = "Diets required";
 
     return errors;
 }

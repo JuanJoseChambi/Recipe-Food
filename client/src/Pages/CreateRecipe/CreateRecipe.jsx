@@ -23,6 +23,7 @@ export default function CreateRecipe({ createRecipe, allInfo}) {
     diets: [],
     stepByStep: "",
     healthScore: "",
+    
   });
 
   let dietasview = [];
@@ -50,11 +51,16 @@ export default function CreateRecipe({ createRecipe, allInfo}) {
   }
 
   function handleSelectChange(event) {
-    const selectedOptions = Array.from(event.target.selectedOptions, option => option.value);
+    const value = event.target.value;
     setRecipeNew(recipeNew => ({
       ...recipeNew,
-      diets: Array.from(new Set([...recipeNew.diets, ...selectedOptions])),
+      diets:[...recipeNew.diets, value],
     }));
+    setErrors(
+      validation({
+        ...recipeNew,
+        diets
+      }))
   }
 
   function handlerSubmit(event) {
@@ -163,50 +169,50 @@ export default function CreateRecipe({ createRecipe, allInfo}) {
             />
             <p className={style.error}>{errors.healthScore}</p>
           </div>
+          <div className={style.blockDerSelect} >
+            <select value={recipeNew.diets} name="diets" onChange={handleSelectChange} aria-multiselectable className={style.selectors} >
+              <option value="" className={style.options}>
+                Diet
+              </option>
+              <option value="1" className={style.options}>
+                Gluten Free
+              </option>
+              <option value="2" className={style.options}>
+                Dairy Free
+              </option>
+              <option value="3" className={style.options}>
+                Lacto Ovo Vegetarian
+              </option>
+              <option value="4" className={style.options}>
+                Vegan
+              </option>
+              <option value="5" className={style.options}>
+                Paleolithic
+              </option>
+              <option value="6" className={style.options}>
+                Primal
+              </option>
+              <option value="7" className={style.options}>
+                Whole 30
+              </option>
+              <option value="8" className={style.options}>
+                Pescatarian
+              </option>
+              <option value="9" className={style.options}>
+                Ketogenic
+              </option>
+              <option value="10" className={style.options}>
+                Fodmap Friendly
+              </option>
+            </select>
+            <p className={style.error}>{errors.diets}</p>
+          </div>
+          
 
-        <select value={recipeNew.diets} name="Diets" required onChange={handleSelectChange} aria-multiselectable className={style.blockDerSelect}>
-          <option value="" className={style.options}>
-            Diet
-          </option>
-          <option value="1" className={style.options}>
-            Gluten Free
-          </option>
-          <option value="2" className={style.options}>
-            Dairy Free
-          </option>
-          <option value="3" className={style.options}>
-            Lacto Ovo Vegetarian
-          </option>
-          <option value="4" className={style.options}>
-            Vegan
-          </option>
-          <option value="5" className={style.options}>
-            Paleolithic
-          </option>
-          <option value="6" className={style.options}>
-            Primal
-          </option>
-          <option value="7" className={style.options}>
-            Whole 30
-          </option>
-          <option value="8" className={style.options}>
-            Pescatarian
-          </option>
-          <option value="9" className={style.options}>
-            Ketogenic
-          </option>
-          <option value="10" className={style.options}>
-            Fodmap Friendly
-          </option>
-        </select>
-
-        </div>
-
-
+      </div>
         <div className={style.dietsDiv}>Dietas: {infoDiets}</div>
-        <p className={style.error}>{errors.diets}</p>
         <button type="submit" 
-        className={(!errors.name && !errors.image && !errors.stepByStep && !errors.summary && !errors.healthScore && recipeNew.diets.length !== 0 )?style.btn:style.btn_invalid}
+        className={(!errors.name && !errors.image && !errors.stepByStep && !errors.summary && !errors.healthScore && !errors.diets)?style.btn:style.btn_invalid}
          onClick={handlerSubmit}> Crear Receta!</button>
       </form>
     </div>

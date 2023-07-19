@@ -29,7 +29,6 @@ export const recipeSlice = createSlice ({
                 state.filtered = state.recipes;
             }else{
                 state.filtered = state.recipes.filter(recipes => recipes.diets.find(diet => diet === dietsType));
-            
             }
         },
         originRecipe: (state, action) => {

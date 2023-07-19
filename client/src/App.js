@@ -42,7 +42,7 @@ export default function App() {
   //---------------------------------------------------------------------------
   //Diets----------------------------------------------------------------------
     async function dietasApi () {
-        const {data} = await axios.get("http://localhost:3001/diets");
+      const {data} = await axios.get("http://localhost:3001/diets");
       const obj = data.map(ele => ele);
       dispatch(setDiets(obj))
     }

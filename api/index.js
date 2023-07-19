@@ -17,8 +17,6 @@
 //     =====`-.____`.___ \_____/___.-`___.-'=====
 //                       `=---='
 //     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-const { getApi } = require('./src/Handlers/getApi.js');
-const { getDiets } = require('./src/Handlers/getDiets.js');
 const server = require('./src/app.js');
 const { conn } = require('./src/db.js');
 
@@ -26,6 +24,5 @@ const { conn } = require('./src/db.js');
 conn.sync({ force: false }).then(() => {/*true:borrar false:mantener */
   server.listen(3001, () => {
     console.log('listening at 3001'); // eslint-disable-line no-console
-    getDiets()
   });
 });
