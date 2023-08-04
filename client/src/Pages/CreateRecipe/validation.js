@@ -22,11 +22,11 @@ export default function validation (input) {
 
     if(input.healthScore === "0") errors.healthScore = "Health Score Min";
     
-    if(input.healthScore > 100) errors.healthScore = "Health Score Max";
+    if(input.healthScore > 100) errors.healthScore = "Health Score 100 Max";
     
     if((input.healthScore).length === 0) errors.healthScore = "Health Score is Required";
 
-    if(input.diets.length === 0) errors.diets = "Diets required";
+    if(input.diets.length === 0) errors.diets = "Select at least 1 diet";
 
     return errors;
 }

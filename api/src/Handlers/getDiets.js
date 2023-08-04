@@ -10,15 +10,11 @@ const getDiets = async () => {
       const allDiets = dietAll.flatMap(ele => ele.diets.map(nameObj => nameObj.name));
       const uniqueDiets = [...new Set(allDiets)].map(name => ({ name }));
       const upDiets = Diet.bulkCreate(uniqueDiets)
-      console.log(dietAll);
       return upDiets
     }else{
       return dietDBFull;
   }
 };
-getDiets()
 
 module.exports = {getDiets}
-
-
 

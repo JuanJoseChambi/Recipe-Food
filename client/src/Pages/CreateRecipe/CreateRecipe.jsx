@@ -7,6 +7,7 @@ import { useSelector } from "react-redux";
 
 export default function CreateRecipe({ createRecipe, allInfo}) {
   const diets = useSelector(state => state.recipes.diets)
+  console.log(diets);
   const [recipeNew, setRecipeNew] = useState({
     name: "",
     image: "",
@@ -27,15 +28,14 @@ export default function CreateRecipe({ createRecipe, allInfo}) {
   });
 
   let dietasview = [];
-
   for (let i = 0; i < recipeNew.diets.length; i++) {
     const selectedDiet = diets.find(diet => diet.id.toString() === recipeNew.diets[i]);
     if (selectedDiet) {
       dietasview.push(selectedDiet.name);
     }
   }
-
-  const infoDiets = dietasview.map(ele => <h5 className={style.dietsInBlock}>{ele}</h5>)
+  let unicas = [...new Set(dietasview)]
+  const infoDiets = unicas.map((ele,i) => <h5 key={i} className={style.dietsInBlock}>{ele}</h5>)
 
   function handlerChange(event) {
     setRecipeNew({
@@ -52,10 +52,12 @@ export default function CreateRecipe({ createRecipe, allInfo}) {
 
   function handleSelectChange(event) {
     const value = event.target.value;
-    setRecipeNew(recipeNew => ({
-      ...recipeNew,
-      diets:[...recipeNew.diets, value],
-    }));
+    if (!recipeNew.diets.includes(value)) {
+      setRecipeNew(recipeNew => ({
+        ...recipeNew,
+        diets: [...recipeNew.diets, value],
+      }));
+    }
     setErrors(
       validation({
         ...recipeNew,

@@ -17,11 +17,8 @@ export default function App() {
   const recipes   = useSelector(state => state.recipes.filtered);
 
   useEffect(() => {
-    async function info () {
-      await allInfo()
-      await dietasApi()
-    }
-   info()
+    allInfo()
+    dietasApi()
     //eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -42,13 +39,6 @@ export default function App() {
       dispatch(setRecipes(info))
     }
   };
-  //---------------------------------------------------------------------------
-  //Diets----------------------------------------------------------------------
-    async function dietasApi () {
-      const {data} = await axios.get("http://localhost:3001/diets");
-      const obj = await data.map(ele => ele);
-      dispatch(setDiets(obj))
-    }
   //---------------------------------------------------------------------------
   //Buscar por Name------------------------------------------------------------
   async function searchRecipe(name) {
@@ -78,13 +68,20 @@ export default function App() {
        if (nameRepeat) {
         alert("Ya existe una receta con el mismo Nombre");
        }else{
-        await axios.post("http://localhost:3001/recipes/",newRecipe)
+        await axios.post("http://localhost:3001/recipes/",newRecipe);
         alert("Receta Creada!!")
        }
       }else{
         alert("Datos Incorectos/Faltantes....")
       }
   };
+  //---------------------------------------------------------------------------
+  //Diets----------------------------------------------------------------------
+    async function dietasApi () {
+      const {data} = await axios.get("http://localhost:3001/diets");
+      const obj = await data.map(ele => ele);
+      dispatch(setDiets(obj))
+    }
   //---------------------------------------------------------------------------
   //Delete---------------------------------------------------------------------
     async function deleteRecipe (id) {

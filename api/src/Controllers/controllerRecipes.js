@@ -13,16 +13,15 @@ router.get("/" , async (req, res) => {
   try {
     if(name) {
         const recipesFiltered = await api.filter((obj) =>
-        obj.name.toLowerCase().includes(name.toLowerCase()))
+        obj.name.toLowerCase().includes(name.toString().toLowerCase()))
 
         if (recipesFiltered.length > 0) {
           return res.status(200).json(recipesFiltered);
         } else {
-          return res.status(404).json({ message: "La receta no se encontró" });
+          return res.status(200).json({ message: "La receta no se encontró" });
         }
-      }else{
-        return res.status(200).json(api)
       }
+      return res.status(200).json(api)
     } catch (error) {
       res.status(500).json({ error: error.message });
     }
